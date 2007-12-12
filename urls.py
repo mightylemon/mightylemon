@@ -1,15 +1,12 @@
 
 from django.conf import settings
 from django.conf.urls.defaults import *
-
-def welcome(request):
-    from django.http import HttpResponse
-    return HttpResponse("coming soon. programming it now ;)")
+from django.http import HttpResponseRedirect
 
 urlpatterns = patterns("",
     (r"^admin/", include("django.contrib.admin.urls")),
     (r"^blog/", include("djog.urls")),
-    (r"^$", welcome),
+    (r"^$", lambda request: HttpResponseRedirect("/blog/")),
 )
 
 if settings.LOCAL_DEV:
