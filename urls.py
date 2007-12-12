@@ -3,10 +3,13 @@ from django.conf import settings
 from django.conf.urls.defaults import *
 from django.http import HttpResponseRedirect
 
+def redirect(request):
+    return HttpResponseRedirect("/blog/")
+
 urlpatterns = patterns("",
     (r"^admin/", include("django.contrib.admin.urls")),
     (r"^blog/", include("djog.urls")),
-    (r"^$", lambda request: HttpResponseRedirect("/blog/")),
+    (r"^$", redirect),
 )
 
 if settings.LOCAL_DEV:
