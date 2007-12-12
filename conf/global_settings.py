@@ -1,4 +1,6 @@
 
+LOCAL_DEV = False
+
 DEBUG = False
 TEMPLATE_DEBUG = DEBUG
 

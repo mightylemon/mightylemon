@@ -1,4 +1,5 @@
 
+from django.conf import settings
 from django.conf.urls.defaults import *
 
 def welcome(request):
@@ -10,3 +11,10 @@ urlpatterns = patterns("",
     (r"^blog/", include("djog.urls")),
     (r"^$", welcome),
 )
+
+if settings.LOCAL_DEV:
+    urlpatterns += patterns("django.views.static",
+        (r"static/(?P<path>.*)$", "serve", dict(
+            document_root = settings.MEDIA_ROOT,
+        ))
+    )
