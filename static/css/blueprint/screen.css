@@ -23,7 +23,17 @@
 
 #header {
     border-bottom: 2px solid #999;
+    padding: 5px 0;
     margin-bottom: 1.2em;
+}
+
+#header div#heading {
+    font-family: monospace;
+    font-size: 1.2em;
+}
+#header span#brosner, #header span#oebfare {
+    font-size: 1.6em;
+    font-weight: bold;
 }
 
 #footer {
