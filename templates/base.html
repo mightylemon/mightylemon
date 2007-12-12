@@ -1,0 +1,25 @@
+<html>
+<head>
+    <title>hello world</title>
+    <link rel="stylesheet" href="{{ MEDIA_URL }}css/blueprint/screen.css" type="text/css" media="screen, projection">
+    <link rel="stylesheet" href="{{ MEDIA_URL }}css/blueprint/print.css" type="text/css" media="print">
+</head>
+
+<body>
+    
+    <div class="container">
+        <h1>brosner</h1>
+        <hr />
+        <div class="column span-14">
+            {% block content %}{% endblock %}
+        </div>
+        <div class="column span-10 last">
+            {% block column_right %}{% endblock %}
+        </div>
+        <div class="column span-24 last">
+        </div>
+    </div>
+    
+</body>
+
+</html>

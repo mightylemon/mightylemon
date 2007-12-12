@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+
+{% block content %}
+{% for entry in latest %}
+    <h2>{{ entry }}</h2>
+    {{ entry.text|safe }}
+{% endfor %}
+{% endblock %}
+
+{% block column_right %}
+{% endblock %}
