@@ -20,3 +20,26 @@
 /* See the grid:
    Uncomment the line below to see the grid and baseline.
    .container { background: url(lib/grid.png); } */
+
+#header {
+    border-bottom: 2px solid #999;
+    margin-bottom: 1.2em;
+}
+
+#footer {
+    border-top: 2px solid #999;
+}
+
+ul {
+    list-style-type: disc;
+    margin: 0 1.5em 1.5em 3em;
+}
+
+pre {
+    background-color: #000;
+    border-left: 4px solid #999;
+    color: #fff;
+    padding: 5px 10px;
+    font-family: "ProFontWindows";
+    font-size: 9px;
+}

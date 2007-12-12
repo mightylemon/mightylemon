@@ -8,15 +8,20 @@
 <body>
     
     <div class="container">
-        <h1>brosner</h1>
-        <hr />
-        <div class="column span-14">
+        <div id="header" class="column span-24 last">
+            <h1>test design</h1>
+        </div>
+        
+        <div class="column span-15 append-1">
             {% block content %}{% endblock %}
         </div>
-        <div class="column span-10 last">
+        
+        <div class="column span-8 last">
             {% block column_right %}{% endblock %}
         </div>
-        <div class="column span-24 last">
+        
+        <div id="footer" class="column span-24 last">
+            hello
         </div>
     </div>
     

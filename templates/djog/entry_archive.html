@@ -1,11 +1,47 @@
 {% extends "base.html" %}
 
+{% load webdesign %}
+
 {% block content %}
 {% for entry in latest %}
     <h2>{{ entry }}</h2>
-    {{ entry.text|safe }}
+    <p>{{ entry.text|safe }}</p>
+    <hr />
 {% endfor %}
+    <h2>Another Test</h2>
+    <p>{% lorem %}</p>
+    <pre>if settings.LOCAL_DEV:
+    urlpatterns += patterns("django.views.static",
+        (r"static/(?P<path>.*)$", "serve", dict(
+            document_root = settings.MEDIA_ROOT,
+        ))
+    )</pre>
+    <p>{% lorem %}</p>
 {% endblock %}
 
 {% block column_right %}
+    <h3>About Me</h3>
+    <p>
+        My name is Brian Rosner. I am a 21-year old web developer. I am
+        currently employed at <a href="http://churchpartner.com">ChurchPartner</a>.
+        In my spare time I work on <a href="http://bravolog.com">BravoLog</a>.
+        I enjoy writing in Python, C, HTML, CSS and Javascript.
+    </p>
+    
+    <hr />
+    
+    <h3>Work</h3>
+    <ul>
+        <li><a href="http://www.churchpartner.com/">ChurchPartner</a></li>
+        <li><a href="http://bravolog.com/">BravoLog</a></li>
+    </ul>
+    
+    <hr />
+    
+    <h3>Open Source Projects</h3>
+    <ul>
+        <li><a href="http://www.djangoproject.com/">Django</a></li>
+        <li><a href="http://www.cherokee-project.com/">Cherokee</a></li>
+        <li><a href="http://dev.oebfare.com/projects/djog/">djog</a></li>
+    </ul>
 {% endblock %}
