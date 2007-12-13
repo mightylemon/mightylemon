@@ -5,7 +5,7 @@
 {% block content %}
 {% for entry in latest %}
     <h2>{{ entry }}</h2>
-    <p>{{ entry.text|safe }}</p>
+    {{ entry.text|safe }}
     <hr />
 {% endfor %}
     <h2>Another Test</h2>
