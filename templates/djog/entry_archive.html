@@ -8,14 +8,6 @@
     {{ entry.text|safe }}
     <hr />
 {% endfor %}
-    <h2>Another Test</h2>
-    <p>{% lorem %}</p>
-    <pre>if settings.LOCAL_DEV:
-    urlpatterns += patterns("django.views.static",
-        (r"static/(?P<path>.*)$", "serve", dict(
-            document_root = settings.MEDIA_ROOT,
-        ))
-    )</pre>
 {% endblock %}
 
 {% block column_right %}
