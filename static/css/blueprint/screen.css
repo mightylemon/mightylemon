@@ -38,6 +38,10 @@
     font-size: 1.6em;
     font-weight: bold;
 }
+#header div#heading a {
+    color: #fff;
+    text-decoration: none;
+}
 
 #footer {
     border-top: 2px solid #999;

@@ -19,10 +19,10 @@
     <div class="container">
         {% block header %}
         <div id="header" class="column span-24 last">
-            <div id="heading">
+            <div id="heading"><a href="{{ blog.get_absolute_url }}">
                 <div>>>> u"".join([chr(((ord(c) - 97) + 13) % 26 + 97) for c in u"<span id="brosner">brosner</span>"])</div>
                 <div>u'<span id="oebfare">{{ blog }}</span>'</div>
-            </div>
+            </a></div>
         </div>
         {% endblock %}
         {% block content %}
