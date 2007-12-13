@@ -29,11 +29,11 @@ body { font-size: 75%; }
    
 body { 
   color: #222; 
-  font-family: "Helvetica Neue", "Lucida Grande", Helvetica, Arial, Verdana, sans-serif; 
+  font-family: "Lucida Grande", Helvetica, Arial, Verdana, sans-serif;
 }
 h1,h2,h3,h4,h5,h6 { 
   color: #111; 
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; 
+  font-family: Georgia, "lucida bright", "times new roman", serif; 
 }
 
 

@@ -66,7 +66,7 @@ div.entry h1 {
     font-size: 2.5em;
 }
 div.entry h1, div.entry h2 {
-    margin: 0;
+    margin-bottom: .1em;
 }
 div.entry h2 a {
     color: #111;
