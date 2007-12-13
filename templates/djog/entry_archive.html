@@ -1,11 +1,15 @@
 {% extends "base.html" %}
 
 {% block content %}
+{% if latest %}
 {% for entry in latest %}
     <h2>{{ entry }}</h2>
     {{ entry.text|safe }}
     {% if not forloop.last %}<hr />{% endif %}
 {% endfor %}
+{% else %}
+No entries.
+{% endif %}
 {% endblock %}
 
 {% block column_right %}
