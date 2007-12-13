@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <div class="entry">
+        <h1>Preview Comment</h1>
+        <div class="pub_date">Submitted by <strong>{{ comment.person_name }}</strong></div>
+        <p>{{ comment.comment }}</p>
+    </div>
+    <form method="POST" action="">
+        <input type="hidden" name="person_name" value="{{ comment.person_name }}" />
+        <input type="hidden" name="comment" value="{{ comment.comment }}" />
+        <input type="hidden" name="options" value="{{ options }}" />
+        <input type="hidden" name="target" value="{{ target }}" />
+        <input type="hidden" name="gonzo" value="{{ hash }}" />
+        <p>
+            <input type="submit" name="post" value="Post comment" />
+            or <a href="#">go back</a> to edit the comment.
+        </p>
+    </form>
+{% endblock %}

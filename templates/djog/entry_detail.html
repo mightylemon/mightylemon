@@ -12,20 +12,20 @@
         {{ object.text|safe }}
     </div>
 </div>
-
+<hr class="strong" />
 {% load comments %}
 {% get_free_comment_count for djog.entry object.pk as comment_count %}
 {% get_free_comment_list for djog.entry object.pk as comment_list %}
-<h3>Comments</h3>
-<hr />
-{% if comment_list %}
+{% if comment_count %}
+<h3>{{ comment_count }} Comment{{ comment_count|pluralize }}</h3>
 {% for comment in comment_list %}
-<p>{{ comment }}</p>
+<h6 id="c{{ comment.pk }}">{{ comment.person_name }}</h6>
+<div class="small">Posted <strong>{{ comment.submit_date|date:"m/d/Y" }}</strong></div>
+<p>{{ comment.comment }}</p>
+{% if not forloop.last %}<hr />{% endif %}
 {% endfor %}
-{% else %}
-<p>No comments.</p>
+<hr class="strong" />
 {% endif %}
-<hr />
 <h3>Add Your Comment</h3>
 {% free_comment_form for djog.entry object.pk %}
 {% endblock %}

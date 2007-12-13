@@ -1,0 +1,6 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h1>Your Comment Has Been Posted</h1>
+    <p>Your comment has been successfully posted. Go back to <a href="{{ object.get_absolute_url }}">{{ object.title }}</a>.</p>
+{% endblock %}
