@@ -12,4 +12,20 @@
         {{ object.text|safe }}
     </div>
 </div>
+
+{% load comments %}
+{% get_free_comment_count for djog.entry object.pk as comment_count %}
+{% get_free_comment_list for djog.entry object.pk as comment_list %}
+<h3>Comments</h3>
+<hr />
+{% if comment_list %}
+{% for comment in comment_list %}
+<p>{{ comment }}</p>
+{% endfor %}
+{% else %}
+<p>No comments.</p>
+{% endif %}
+<hr />
+<h3>Add Your Comment</h3>
+{% free_comment_form for djog.entry object.pk %}
 {% endblock %}
