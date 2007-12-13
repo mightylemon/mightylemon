@@ -6,7 +6,7 @@
 {% for entry in latest %}
     <h2>{{ entry }}</h2>
     {{ entry.text|safe }}
-    <hr />
+    {% if not forloop.last %}<hr />{% endif %}
 {% endfor %}
 {% endblock %}
 
