@@ -22,14 +22,17 @@
    .container { background: url(lib/grid.png); } */
 
 #header {
-    border-bottom: 2px solid #999;
-    padding: 5px 0;
+    background: #444;
+    border-bottom: 2px solid #222;
+    color: #fff;
+    padding: 5px 0px;
     margin-bottom: 1.2em;
 }
 
 #header div#heading {
     font-family: monospace;
     font-size: 1.2em;
+    padding: 0px 5px;
 }
 #header span#brosner, #header span#oebfare {
     font-size: 1.6em;
