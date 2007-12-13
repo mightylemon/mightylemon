@@ -3,6 +3,13 @@
 {% block title %}{{ object }} | {{ block.super }}{% endblock %}
 
 {% block content %}
-<h1>{{ object }}</h1>
-{{ object.text|safe }}
+<div class="entry">
+    <h1>{{ object }}</h1>
+    <div class="pub_date">
+        Posted <strong>{{ object.pub_date|date:"m/d/Y" }}</strong> at <strong>{{ object.pub_date|date:"h:i:s" }}</strong>
+    </div>
+    <div class="text">
+        {{ object.text|safe }}
+    </div>
+</div>
 {% endblock %}

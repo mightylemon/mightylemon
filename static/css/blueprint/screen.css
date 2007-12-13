@@ -61,3 +61,21 @@ pre {
     font-family: "ProFontWindows";
     font-size: 9px;
 }
+
+div.entry h1 {
+    font-size: 2.5em;
+}
+div.entry h1, div.entry h2 {
+    margin: 0;
+}
+div.entry h2 a {
+    color: #111;
+    text-decoration: none;
+}
+div.entry .pub_date {
+    font-size: .9em;
+    margin-bottom: 1.2em;
+}
+div.entry .text {
+    
+}

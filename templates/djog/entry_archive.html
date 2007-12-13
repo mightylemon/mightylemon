@@ -3,8 +3,13 @@
 {% block column_left %}
 {% if latest %}
 {% for entry in latest %}
-    <h2>{{ entry }}</h2>
-    {{ entry.text|safe }}
+    <div class="entry">
+        <h2><a href="{{ entry.get_absolute_url }}">{{ entry }}</a></h2>
+        <div class="pub_date">
+            Posted <strong>{{ entry.pub_date|date:"m/d/Y" }}</strong> at <strong>{{ entry.pub_date|date:"h:i:s" }}</strong>
+        </div>
+        <div class="text">{{ entry.text|safe }}</div>
+    </div>
     {% if not forloop.last %}<hr />{% endif %}
 {% endfor %}
 {% else %}
