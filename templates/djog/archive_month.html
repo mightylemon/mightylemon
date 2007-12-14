@@ -3,6 +3,8 @@
 {% load djog_utils %}
 
 {% block column_left %}
+<h1>Entries for {{ month|date:"F" }}, {{ month|date:"Y"}}</h1>
+<hr class="strong" />
 {% if object_list %}
 {% for entry in object_list %}
     {% show_entry entry %}
