@@ -3,8 +3,8 @@
 {% load djog_utils %}
 
 {% block column_left %}
-{% if entries %}
-{% for entry in entries %}
+{% if object_list %}
+{% for entry in object_list %}
     {% show_entry entry %}
     {% if not forloop.last %}<hr />{% endif %}
 {% endfor %}
