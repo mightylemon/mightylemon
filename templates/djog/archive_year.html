@@ -3,9 +3,11 @@
 {% load djog_utils %}
 
 {% block column_left %}
+<h1>{{ year }} Archive</h1>
+<hr class="strong" />
 {% if date_list %}
 {% for date in date_list %}
-    <p><a href="{% url djog_archive_month date|date:"Y",date|date:"b" %}">{{ date|date:"F" }}</a></p>
+    <a href="{% url djog_archive_month date|date:"Y",date|date:"b" %}">{{ date|date:"F" }}</a><br />
 {% endfor %}
 {% else %}
 No entries.
