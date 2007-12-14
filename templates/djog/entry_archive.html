@@ -9,6 +9,12 @@
             Posted <strong>{{ entry.pub_date|date:"m/d/Y" }}</strong> at <strong>{{ entry.pub_date|date:"h:i:s" }}</strong>
         </div>
         <div class="text">{{ entry.text|safe }}</div>
+        <div>
+            Tagged:
+            {% for tag in entry.tags.all %}
+            <a href="{{ tag.get_absolute_url }}">{{ tag }}</a>
+            {% endfor %}
+        </div>
     </div>
     {% if not forloop.last %}<hr />{% endif %}
 {% endfor %}
