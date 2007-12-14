@@ -12,29 +12,3 @@
 No entries.
 {% endif %}
 {% endblock %}
-
-{% block column_right %}
-    <h3>About Me</h3>
-    <p>
-        My name is Brian Rosner. I am a 21-year old web developer. I am
-        currently employed at <a href="http://churchpartner.com">ChurchPartner</a>.
-        In my spare time I work on <a href="http://bravolog.com">BravoLog</a>.
-        I enjoy writing in Python, C, HTML, CSS and Javascript.
-    </p>
-    
-    <hr />
-    
-    <h3>Open Source Projects</h3>
-    <ul>
-        <li><a href="http://www.djangoproject.com/">Django</a></li>
-        <li><a href="http://www.cherokee-project.com/">Cherokee</a></li>
-        <li><a href="http://dev.oebfare.com/projects/djog/">djog</a></li>
-    </ul>
-    
-    <hr />
-    
-    <h3>RSS Feeds</h3>
-    <ul>
-        <li><a href="{% url djog_feed "latest" %}">Latest Entries</a></li>
-    </ul>
-{% endblock %}
