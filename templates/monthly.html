@@ -1,0 +1,3 @@
+{% for month, count in counts reversed %}
+<li><a href="{% url djog_archive_month month|date:"Y",month|date:"b" %}">{{ month|date:"F, Y" }}</a> ({{ count }})</li>
+{% endfor %}

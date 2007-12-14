@@ -1,3 +1,4 @@
+{% load djog_utils %}
 <html>
 <head>
     <title>{% block title %}{{ blog }}{% endblock %}</title>
@@ -53,6 +54,20 @@
             <h3>RSS Feeds</h3>
             <ul>
                 <li><a href="{% url djog_feed "latest" %}">Latest Entries</a></li>
+            </ul>
+            
+            <hr />
+            
+            <h3>Tags</h3>
+            <ul>
+                {% show_tags %}
+            </ul>
+            
+            <hr />
+            
+            <h3>Archive</h3>
+            <ul>
+                {% show_archive %}
             </ul>
             {% endblock %}
         </div>
