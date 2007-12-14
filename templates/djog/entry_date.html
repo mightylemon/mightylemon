@@ -2,7 +2,7 @@
 
 {% load djog_utils %}
 
-{% block content %}
+{% block column_left %}
 {% for entry in entries %}
     {% show_entry entry %}
     {% if not forloop.last %}<hr />{% endif %}
