@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+
+{% load djog_utils %}
+
+{% block column_left %}
+{% if date_list %}
+{% for date in date_list %}
+    <p><a href="{% url djog_archive_month date|date:"Y",date|date:"b" %}">{{ date|date:"F" }}</a></p>
+{% endfor %}
+{% else %}
+No entries.
+{% endif %}
+{% endblock %}
