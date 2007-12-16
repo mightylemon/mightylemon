@@ -5,15 +5,15 @@
     <title>{% block title %}{{ blog }}{% endblock %}</title>
     <link rel="stylesheet" href="{{ MEDIA_URL }}css/blueprint/screen.css" type="text/css" media="screen, projection" />
     <link rel="stylesheet" href="{{ MEDIA_URL }}css/blueprint/print.css" type="text/css" media="print" />
-    <script type="text/javascript">
+    <script type="text/javascript"><![CDATA[
         var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
         document.write("\<script src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'>\<\/script>" );
-    </script>
-    <script type="text/javascript">
+    ]]></script>
+    <script type="text/javascript"><![CDATA[
         var pageTracker = _gat._getTracker("UA-145127-6");
         pageTracker._initData();
         pageTracker._trackPageview();
-    </script>
+    ]]></script>
 </head>
 
 <body>
