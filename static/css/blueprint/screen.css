@@ -57,13 +57,16 @@ ul {
     margin: 0 1.5em 1.5em 3em;
 }
 
+code {
+    font: normal 12px "bitstream vera sans mono", monaco "lucida console", "courier new", courier, serif;
+}
+
 pre {
     background-color: #444;
     border-left: 4px solid #999;
     color: #fff;
     padding: 5px 10px;
-    font-family: "ProFontWindows";
-    font-size: 9px;
+    font: normal 12px "bitstream vera sans mono", monaco "lucida console", "courier new", courier, serif;
 }
 
 div.entry h1 {
