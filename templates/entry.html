@@ -1,10 +1,11 @@
+{% load text %}
 <div class="entry">
     <h2><a href="{{ entry.get_absolute_url }}">{{ entry }}</a></h2>
     <div class="pub_date">
         Posted <strong>{{ entry.pub_date|date:"m/d/Y" }}</strong> at <strong>{{ entry.pub_date|date:"h:i:s A T" }}</strong>
     </div>
     <div class="text">
-        {{ entry.text|truncatewords_html:"30"|safe }}
+        {{ entry.text|truncatewords_html:"30"|to_html }}
         <p><a href="{{ entry.get_absolute_url }}">Read the full entry</a></p>
     </div>
     <div>

@@ -11,6 +11,7 @@
 @import 'lib/typography.css';
 @import 'lib/grid.css';
 @import 'lib/forms.css';
+@import '../syntax.css';
 
 /* Plugins:
    Additional functionality can be found in the plugins directory.
@@ -64,7 +65,6 @@ code {
 pre {
     background-color: #444;
     border-left: 4px solid #999;
-    color: #fff;
     padding: 5px 10px;
     font: normal 12px "bitstream vera sans mono", monaco "lucida console", "courier new", courier, serif;
 }

@@ -78,4 +78,5 @@ INSTALLED_APPS = (
     "django.contrib.admin",
     "django.contrib.comments",
     "djog",
+    "oebfare.blog",
 )
