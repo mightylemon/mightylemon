@@ -1,1 +1,2 @@
-{{ obj.text|safe }}
+{% load text %}
+{{ obj.text|to_html|safe }}
