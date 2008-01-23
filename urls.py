@@ -8,7 +8,7 @@ def redirect(request):
 
 urlpatterns = patterns("",
     (r"^admin/", include("django.contrib.admin.urls")),
-    (r"^blog/", include("djog.urls")),
+    (r"^blog/", include("oebfare.blog.urls")),
     (r"^$", redirect),
 )
 

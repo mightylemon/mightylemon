@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% load blog_utils %}
+
+{% block column_left %}
+{% if latest %}
+{% for post in latest %}
+    {% show_post post %}
+    {% if not forloop.last %}<hr />{% endif %}
+{% endfor %}
+{% else %}
+No entries.
+{% endif %}
+{% endblock %}
