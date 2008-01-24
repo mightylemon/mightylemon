@@ -1,32 +1,33 @@
-{% extends "base.html" %}
-{% load text %}
+{% extends "base_2col.html" %}
+{% load blog_utils %}
 
-{% block title %}{{ post }} | {{ block.super }}{% endblock %}
-
-{% block content %}
+{% block sl %}
+<h1>{{ post.title }}</h1>
 <div class="entry">
-    <h1>{{ post }}</h1>
-    <div class="pub_date">
-        Posted <strong>{{ post.pub_date|date:"m/d/Y" }}</strong> at <strong>{{ post.pub_date|date:"h:i:s A T" }}</strong>
-    </div>
-    <div class="text">
-        {{ post.text|to_html }}
+    {{ post.body|to_html }}
+</div>
+
+<hr />
+
+{% load comment_utils %}
+{% load comments %}
+{% get_public_free_comment_list for blog.post post.pk as comment_list %}
+{% if comment_list %}
+<h2 id="c">Comments</h2>
+{% for comment in comment_list %}
+<div class="comment" id="c{{ comment.pk }}">
+    <div class="{% cycle odd,even %}">
+    {{ comment.comment|urlizetrunc:"40"|linebreaks }}
+    <p class="small">Posted by <strong>{{ comment.person_name }}</strong> on <strong>{{ comment.submit_date|date:"M j, Y" }}</strong> at <strong>{{ comment.submit_date|time:"f A" }}</strong></p>
     </div>
 </div>
-<hr class="strong" />
-{% load comments %}
-{% get_free_comment_count for blog.post post.pk as comment_count %}
-{% get_free_comment_list for blog.post post.pk as comment_list %}
-{% if comment_count %}
-<h2>{{ comment_count }} Comment{{ comment_count|pluralize }}</h2>
-{% for comment in comment_list %}
-<h6 id="c{{ comment.pk }}">{{ comment.person_name }}</h6>
-<div class="small">Posted <strong>{{ comment.submit_date|date:"m/d/Y" }}</strong></div>
-<p>{{ comment.comment }}</p>
-{% if not forloop.last %}<hr />{% endif %}
 {% endfor %}
-<hr class="strong" />
 {% endif %}
 <h2>Add Your Comment</h2>
-{% free_comment_form for blog.post object.pk %}
+{% free_comment_form for blog.post post.pk %}
+{% endblock %}
+
+{% block sr %}
+<h2>Entry Details</h2>
+<p>Published: <strong>{{ post.pub_date|date:"M j, Y" }} at {{ post.pub_date|time:"f A" }}</strong></p>
 {% endblock %}

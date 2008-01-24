@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% load blog_utils %}
+
+{% block sl %}
+<h1>Latest Entries</h1>
+{% if posts %}
+{% for post in posts %}
+    {% show_post_brief post %}
+{% endfor %}
+{% else %}
+<p>No entries.</p>
+{% endif %}
+{% endblock %}

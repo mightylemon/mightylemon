@@ -1,6 +1,16 @@
-{% extends "base.html" %}
+{% extends "base_2col.html" %}
 
-{% block content %}
-    <h1>Your Comment Has Been Posted</h1>
-    <p>Your comment has been successfully posted. Go back to <a href="{{ object.get_absolute_url }}">{{ object.title }}</a>.</p>
+{% block sl %}
+<h1>Comment posted successfully</h1>
+
+<p>Thanks for contributing.</p>
+
+{% if object %}
+	<ul>
+		<li><a href="{{ object.get_absolute_url }}">View your comment</a></li>
+	</ul>
+{% endif %}
+{% endblock %}
+
+{% block sr %}
 {% endblock %}

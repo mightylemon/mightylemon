@@ -1,93 +1,74 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<html>
 <head>
     <title>{% block title %}oebfare.com{% endblock %}</title>
-    <link rel="stylesheet" href="{{ MEDIA_URL }}css/blueprint/screen.css" type="text/css" media="screen, projection" />
-    <link rel="stylesheet" href="{{ MEDIA_URL }}css/blueprint/print.css" type="text/css" media="print" />
-    <script type="text/javascript">
-    /* <![CDATA[ */
-        var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
-        document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
-    /* ]]> */
-    </script>
-    <script type="text/javascript">
-    /* <![CDATA[ */
-        var pageTracker = _gat._getTracker("UA-145127-6");
-        pageTracker._initData();
-        pageTracker._trackPageview();
-    /* ]]> */
-    </script>
+    <link href="{{ MEDIA_URL }}css/screen.css" type="text/css" rel="stylesheet" />
 </head>
-
+    
 <body>
-    
-    <div class="container">
-        {% block header %}
-        <div id="header" class="column span-24 last">
-            <div id="heading"><a href="{% url blog_index %}">
-                <div>&gt;&gt;&gt; u"".join([chr(((ord(c) - 97) + 13) % 26 + 97) for c in u"<span id="brosner">oebfare</span>"])</div>
-                <div>u'<span id="oebfare">brosner</span>'</div>
-            </a></div>
+    <div id="{% block doc_id %}doc3{% endblock %}">
+        <div id="hd">
+            <a href="{% url oebfare_home %}"><img src="{{ MEDIA_URL }}images/oebfare.png" /></a>
         </div>
-        {% endblock %}
-        {% block content %}
-        <div class="column span-15 append-1">
-            {% block column_left %}{% endblock %}
-        </div>
-        <div class="column span-8 last">
-            {% block column_right %}
-            <h3>About Me</h3>
-            <p>
-                My name is Brian Rosner. I am a 21-year old web developer. I am
-                currently employed at <a href="http://churchpartner.com">ChurchPartner</a>.
-                In my spare time I work on <a href="http://bravolog.com">BravoLog</a>.
-                I enjoy writing in Python, C, HTML, CSS and Javascript.
-            </p>
-
-            <hr />
-
-            <h3>Open Source Projects</h3>
-            <ul>
-                <li><a href="http://www.djangoproject.com/">Django</a></li>
-                <li><a href="http://www.cherokee-project.com/">Cherokee</a></li>
-                <li><a href="http://dev.oebfare.com/projects/djog/">djog</a></li>
-            </ul>
-
-            <hr />
-
-            <h3>RSS Feeds</h3>
-            <ul>
-                <li><a href="http://feeds.feedburner.com/oebfare-latest-entries">Latest Entries</a></li>
-            </ul>
-            
-            <hr />
-            
-            <h3>Tags</h3>
-            <ul>
-            </ul>
-            
-            <hr />
-            
-            <h3>Archive</h3>
-            <ul>
-            </ul>
-            {% endblock %}
-        </div>
-        {% endblock %}
-        {% block footer %}
-        <div id="footer" class="column span-24 last">
-            <div class="column span-12">
-                &copy; 2007 Brian Rosner
-            </div>
-            <div class="column span-12 last" style="text-align: right;">
-                <a href="http://www.djangoproject.com/">
-                    <img src="http://media.djangoproject.com/img/badges/djangosite80x15.gif" alt="A Django site." title="A Django site." />
-                </a>
+        
+        <div id="bd">
+            <div class="{% block grid_class %}yui-gb{% endblock %}">
+                {% block content %}
+                <div id="sl" class="yui-u first">
+                    <div>
+                        {% block sl %}{% endblock %}
+                    </div>
+                </div>
+                
+                <div id="sm" class="yui-u">
+                    <div>
+                        {% block sm %}
+                        <h2>Links</h2>
+                        {% load link_tags %}
+                        {% get_links as links limit 5 %}
+                        {% if links %}
+                        {% for link in links %}
+                        <p><a href="{{ link.url }}">{{ link.name }}</a> - {{ link.description }}</p>
+                        {% endfor %}
+                        {% else %}
+                        <p>No links.</p>
+                        {% endif %}
+                        
+                        <h2>Tags</h2>
+                        {% load tagging_tags %}
+                        {% tags_for_model blog.Post as post_tags %}
+                        {% if post_tags %}
+                        <div class="tags">
+                            <ul>
+                                {% for tag in post_tags %}
+                                <li><a href="#">{{ tag }}</a></li>
+                                {% endfor %}
+                            </ul>
+                        </div>
+                        {% endif %}
+                        {% endblock %}
+                    </div>
+                </div>
+                
+                <div id="sr" class="yui-u">
+                    <div>
+                        {% block sr %}
+                        <h2>About Me</h2>
+                        <p>
+                            My name is Brian Rosner. I am a 21-year old web
+                            developer. I am currently employed at <a href="#">ChurchPartner</a>.
+                            In my spare time I work on <a href="#">BravoLog</a>. I enjoy writing
+                            in Python, C, HTML, CSS and Javascript.
+                        </p>
+                        {% endblock %}
+                    </div>
+                </div>
+                {% endblock %}
             </div>
         </div>
-        {% endblock %}
+        
+        <div id="ft">
+            &copy; 2007 - 2008 Brian Rosner
+        </div>
     </div>
-    
 </body>
-
 </html>
