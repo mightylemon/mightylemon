@@ -26,6 +26,7 @@ class Post(models.Model):
     class Meta:
         verbose_name = _("post")
         verbose_name_plural = _("posts")
+        ordering = ("-pub_date",)
     
     def get_absolute_url(self):
         return ("blog_post_detail", (), {
