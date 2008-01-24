@@ -30,4 +30,16 @@
 {% block sr %}
 <h2>Entry Details</h2>
 <p>Published: <strong>{{ post.pub_date|date:"M j, Y" }} at {{ post.pub_date|time:"f A" }}</strong></p>
+{% load tagging_tags %}
+{% tags_for_object post as tags %}
+{% if tags %}
+<div class="tags">
+    <ul>
+        <li class="normal">Tags:</li>
+        {% for tag in tags %}
+        <li><a href="#">{{ tag }}</a></li>
+        {% endfor %}
+    </ul>
+</div>
+{% endif %}
 {% endblock %}
