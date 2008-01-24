@@ -1,5 +1,7 @@
 {% extends "base_2col.html" %}
 
+{% block title %}Preview Your Comment | {{ block.super }}{% endblock %}
+
 {% block sl %}
 <h1>Preview Your Comment</h1>
 <form action="/comments/postfree/" method="post">

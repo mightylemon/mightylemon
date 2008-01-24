@@ -1,6 +1,8 @@
 {% extends "base_2col.html" %}
 {% load blog_utils %}
 
+{% block title %}Entries for {{ month|date:"F"}}, {{ month|date:"Y" }} | {{ block.super }}{% endblock %}
+
 {% block sl %}
 <h1>Entries for {{ month|date:"F"}}, {{ month|date:"Y" }}</h1>
 {% if object_list %}

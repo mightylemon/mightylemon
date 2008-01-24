@@ -1,6 +1,8 @@
 {% extends "base_2col.html" %}
 {% load blog_utils %}
 
+{% block title %}Entries tagged with "{{ tag }}" | {{ block.super }}{% endblock %}
+
 {% block sl %}
 <h1>Entries tagged with "{{ tag }}"</h1>
 {% if object_list %}
