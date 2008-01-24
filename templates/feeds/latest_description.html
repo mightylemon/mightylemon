@@ -1,2 +1,2 @@
-{% load text %}
-{{ obj.text|to_html|safe }}
+{% load blog_utils %}
+{{ obj.body|to_html|safe }}
