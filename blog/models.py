@@ -5,6 +5,7 @@ from django.db import models
 from django.utils.translation import ugettext_lazy as _
 
 from tagging.models import Tag
+from tagging.fields import TagField
 
 class Post(models.Model):
     title = models.CharField(_("title"), max_length=100)
@@ -12,6 +13,7 @@ class Post(models.Model):
     body = models.TextField(_("body"))
     create_date = models.DateTimeField(_("created"), default=datetime.now)
     pub_date = models.DateTimeField(_("published"), default=datetime.now)
+    tags = TagField()
     
     def __unicode__(self):
         return self.title
@@ -24,12 +26,6 @@ class Post(models.Model):
     class Meta:
         verbose_name = _("post")
         verbose_name_plural = _("posts")
-    
-    def _get_tags(self):
-        return Tag.objects.get_for_object(self)
-    def _set_tags(self, tag_list):
-        Tag.objects.update_tags(self, tag_list)
-    tags = property(_get_tags, _set_tags)
     
     def get_absolute_url(self):
         return ("blog_post_detail", (), {
