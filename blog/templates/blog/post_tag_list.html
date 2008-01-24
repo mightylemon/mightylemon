@@ -1,0 +1,26 @@
+{% extends "base_2col.html" %}
+{% load blog_utils %}
+
+{% block sl %}
+<h1>Entries tagged with "{{ tag }}"</h1>
+{% if object_list %}
+{% for post in object_list %}
+    {% show_post_brief post %}
+{% endfor %}
+{% else %}
+<p>No entries.</p>
+{% endif %}
+{% endblock %}
+
+{% block sr %}
+{% if related_tags %}
+<h2>Related Tags</h2>
+<div class="tags">
+    <ul>
+        {% for related_tag in related_tags %}
+        <li><a href="{% url blog_tag_detail related_tag %}">{{ related_tag }}</a></li>
+        {% endfor %}
+    </ul>
+</div>
+{% endif %}
+{% endblock %}

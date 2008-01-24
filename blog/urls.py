@@ -10,6 +10,12 @@ date_based_dict = {
 }
 
 urlpatterns = patterns("",
+    url(r"tags/(?P<tag>[^/]+)/$", "tagging.views.tagged_object_list", {
+        "model": Post,
+        "template_name": "blog/post_tag_list.html",
+        "related_tags": True,
+    }, name="blog_tag_detail"),
+    
     url(r"^(?P<year>\d{4})/(?P<month>[a-z]{3})/(?P<day>\w{1,2})/(?P<slug>[-\w]+)/$",
         object_detail, dict(date_based_dict, **{
             "template_object_name": "post",

@@ -37,7 +37,7 @@
     <ul>
         <li class="normal">Tags:</li>
         {% for tag in tags %}
-        <li><a href="#">{{ tag }}</a></li>
+        <li><a href="{% url blog_tag_detail tag %}">{{ tag }}</a></li>
         {% endfor %}
     </ul>
 </div>
