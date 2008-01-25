@@ -10,7 +10,7 @@ class LatestPostFeed(feeds.Feed):
     """
     Feed of the latest 10 posts.
     """
-    title = "oebfare latest entries"
+    title = "oebfare: Latest Entries"
     link = "/blog/"
     
     def items(self):
