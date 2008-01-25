@@ -2,6 +2,10 @@
 @import "../yui/reset-fonts-grids/reset-fonts-grids.css";
 @import "../yui/base/base-min.css";
 
+html {
+    background-color: #374140;
+}
+
 body {
     font-family: Georgia, Times, sans-serif;
     background-color: #374140;
