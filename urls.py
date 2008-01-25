@@ -3,10 +3,12 @@ from django.conf import settings
 from django.conf.urls.defaults import *
 
 from oebfare.blog.feeds import LatestPostFeed, LatestPostsByTagFeed
+from oebfare.links.feeds import LatestLinkFeed
 
 feeds = {
     "latest": LatestPostFeed,
     "tags": LatestPostsByTagFeed,
+    "links": LatestLinkFeed,
 }
 
 urlpatterns = patterns("",
