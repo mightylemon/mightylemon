@@ -112,10 +112,13 @@ div.tags ul {
 }
 div.tags ul li {
     list-style-type: none;
-    background-color: #637978;
+    background-color: #8FACAB;
     float: left;
     padding: 3px;
     margin-right: 5px;
+}
+.entry div.tags ul li, .entry-brief div.tags ul li {
+    background-color: #637978;
 }
 div.tags ul li.normal {
     background: none;
