@@ -1,9 +1,12 @@
 #!/usr/bin/env python
 
-#
-# Make sure the environment is setup prior to running this script. This means
-# django must be in PYTHONPATH and DJANGO_SETTINGS_MODULE must be set correctly.
-#
+import os
+import sys
+
+sys.path.insert(0, "/home/brian/www/python/django")
+sys.path.insert(0, "/home/brian/www/python")
+
+os.environ["DJANGO_SETTINGS_MODULE"] = "oebfare.settings"
 
 from django.core.servers.fastcgi import runfastcgi
 
