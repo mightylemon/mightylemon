@@ -14,7 +14,7 @@ class LatestPostFeed(feeds.Feed):
     link = "/blog/"
     
     def items(self):
-        return Post.objects.all()[:10]
+        return Post.objects.active()[:10]
 
 class LatestPostsByTagFeed(feeds.Feed):
     """
@@ -34,4 +34,5 @@ class LatestPostsByTagFeed(feeds.Feed):
         return 'The latest entries tagged with "%s"' % obj
     
     def items(self, obj):
-        return TaggedItem.objects.get_by_model(Post, obj)
+        # TODO: look at possibly getting the filter through the manager
+        return TaggedItem.objects.get_by_model(Post, obj).filter(active=True)
