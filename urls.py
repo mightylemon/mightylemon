@@ -7,6 +7,7 @@ urlpatterns = patterns("",
     url(r"^blog/", include("oebfare.blog.urls")),
     url(r"^comments/", include("django.contrib.comments.urls.comments")),
     url(r"^links/", include("oebfare.links.urls")),
+    url(r"^irc/", include("irc.urls")),
     url(r"^$", "oebfare.blog.views.homepage", name="oebfare_home"),
 )
 
