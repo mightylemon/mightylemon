@@ -4,6 +4,7 @@
 <head id="head">
     <title>{% block title %}DjangoBot Logger{% endblock %}</title>
     <link href="{{ MEDIA_URL }}css/screen_irc.css" media="screen" rel="stylesheet" type="text/css" />
+    <link href="{{ MEDIA_URL }}css/calendar_irc.css" media="screen" rel="stylesheet" type="text/css" />
     <script type="text/javascript">
     /* <![CDATA[ */
         var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
@@ -54,6 +55,7 @@
 
 	<div id="right">
 	    <div style="text-align: center;">
+	        {% block sidebar %}{% endblock %}
 	    </div>
 	</div>
 	<br style="clear: both;" />
