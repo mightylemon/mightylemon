@@ -1,5 +1,12 @@
 #!/usr/bin/env python
 
+#
+# when running on oebfare.com make sure to use this PYTHONPATH to mimic
+# the behavior of manage.py and to workaround some Django bugs::
+#
+#   export PYTHONPATH=~/www/python/:~/www/python/oebfare/:~/www/python/django:/home/djangobot/djangobot/
+#
+
 import sys
 import os
 
