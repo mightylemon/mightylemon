@@ -3,7 +3,7 @@
 import sys
 import os
 
-os.environ["DJANGO_SETTINGS_MODULE"] = "settings"
+os.environ["DJANGO_SETTINGS_MODULE"] = "oebfare.settings"
 
 from cherrypy.wsgiserver import CherryPyWSGIServer
 from django.core.handlers.wsgi import WSGIHandler
