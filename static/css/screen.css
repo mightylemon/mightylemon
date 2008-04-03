@@ -128,12 +128,13 @@ div.tags li a {
 }
 
 pre, code {
-    font: normal .9em "bitstream vera sans mono", monaco "lucida console", "courier new", courier, serif;
+    font: normal .9em "bitstream vera sans mono", monaco, "lucida console", "courier new", courier, serif;
 }
 code {
     background: #637978;
-    color: #CDE9E9;
+    color: #374140;
     font-size: .89em;
+    padding: 1px 2px;
 }
 
 textarea {
