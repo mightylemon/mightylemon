@@ -11,7 +11,15 @@ from cherrypy.wsgiserver import CherryPyWSGIServer
 from django.core.handlers.wsgi import WSGIHandler
 
 def main():
-    httpd = CherryPyWSGIServer(("127.0.0.1", 8000), WSGIHandler(),
+    params = sys.argv[1:]
+    if params:
+        host, port = params
+        if host == "0":
+            host = "0.0.0.0"
+        port = int(port)
+    else:
+        host, port = "127.0.0.1", 8000
+    httpd = CherryPyWSGIServer((host, port), WSGIHandler(),
         server_name="localhost")
     try:
         httpd.start()
