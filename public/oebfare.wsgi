@@ -1,10 +1,6 @@
 #!/usr/bin/env python
 
 import os
-import sys
-
-sys.path.insert(0, "../")
-sys.path.insert(1, "../../")
 os.environ["DJANGO_SETTINGS_MODULE"] = "settings"
 
 from cherrypy.wsgiserver import CherryPyWSGIServer
