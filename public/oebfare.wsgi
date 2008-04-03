@@ -1,6 +1,8 @@
 #!/usr/bin/env python
 
+import sys
 import os
+
 os.environ["DJANGO_SETTINGS_MODULE"] = "settings"
 
 from cherrypy.wsgiserver import CherryPyWSGIServer
