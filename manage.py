@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 from django.core.management import execute_manager
 try:
-    import settings
+    import settings # test comment
 except ImportError, e:
     import sys
     sys.stderr.write("canot find settings: %s\n" % e)
