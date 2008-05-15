@@ -7,6 +7,8 @@ from django.utils.translation import ugettext_lazy as _
 from tagging.models import Tag
 from tagging.fields import TagField
 
+from comment_utils.moderation import CommentModerator, moderator
+
 class PostManager(models.Manager):
     def active(self):
         return self.filter(active=True)
@@ -43,3 +45,7 @@ class Post(models.Model):
             "slug": self.slug,
         })
     get_absolute_url = models.permalink(get_absolute_url)
+
+class PostModerator(CommentModerator):
+    akismet = True
+moderator.register(Post, PostModerator)
