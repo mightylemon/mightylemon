@@ -21,7 +21,7 @@ from django.core.handlers.wsgi import WSGIHandler
 
 def write_pid():
     fp = open(os.path.join(current_dir, "oebfare.pid"), "wb")
-    fp.write(os.getpid())
+    fp.write(str(os.getpid()))
     fp.close()
 
 def daemonize():
