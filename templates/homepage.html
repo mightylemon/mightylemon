@@ -1,6 +1,11 @@
 {% extends "base.html" %}
 {% load blog_utils %}
 
+{% block feeds %}
+<link rel="alternate" type="application/rss+xml" href="http://feeds.feedburner.com/oebfare-latest-entries" title="oebfare: Latest Entries" />
+<link rel="alternate" type="application/rss+xml" href="http://feeds.feedburner.com/oebfare-latest-links" title="oebfare: Latest Links" />
+{% endblock %}
+
 {% block sl %}
 <h1>Latest Entries <a href="http://feeds.feedburner.com/oebfare-latest-entries"><img src="{{ MEDIA_URL }}images/feed-icon-14x14.png" /></a></h1>
 {% if posts %}

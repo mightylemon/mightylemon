@@ -3,8 +3,7 @@
 <head>
     <title>{% block title %}oebfare{% endblock %}</title>
     <link href="{{ MEDIA_URL }}css/screen.css" type="text/css" rel="stylesheet" />
-    <link rel="alternate" type="application/rss+xml" href="http://feeds.feedburner.com/oebfare-latest-entries" title="oebfare: Latest Entries" />
-    <link rel="alternate" type="application/rss+xml" href="http://feeds.feedburner.com/oebfare-latest-links" title="oebfare: Latest Links" />
+    {% block feeds %}{% endblock %}
     <script type="text/javascript">
     /* <![CDATA[ */
         var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
