@@ -20,7 +20,7 @@ urlpatterns = patterns("",
     }, name="blog_feeds"),
     
     url(r"tags/(?P<tag>[^/]+)/$", "tagging.views.tagged_object_list", {
-        "model": Post,
+        "queryset_or_model": Post,
         "template_name": "blog/post_tag_list.html",
         "related_tags": True,
     }, name="blog_tag_detail"),
