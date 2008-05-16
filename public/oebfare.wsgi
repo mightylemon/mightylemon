@@ -1,16 +1,19 @@
 #!/usr/bin/env python
 
-#
-# when running on oebfare.com make sure to use this PYTHONPATH to mimic
-# the behavior of manage.py and to workaround some Django bugs::
-#
-#   export PYTHONPATH=~/www/python/:~/www/python/oebfare/:~/www/python/django:/home/djangobot/djangobot/
-#
-
 import sys
 import os
 
-os.environ["DJANGO_SETTINGS_MODULE"] = "oebfare.settings"
+def setup_environ(settings):
+    """
+    Put the directory above and its parent on to the sys.path to ensure
+    simpler setup.
+    """
+    current_dir = os.path.dirname(__file__)
+    sys.path.insert(0, os.path.join(current_dir, "../"))
+    sys.path.insert(0, os.path.join(current_dir, "../../"))
+    os.environ["DJANGO_SETTINGS_MODULE"] = settings
+
+setup_environ("oebfare.settings")
 
 from cherrypy.wsgiserver import CherryPyWSGIServer
 from django.core.handlers.wsgi import WSGIHandler
