@@ -9,8 +9,8 @@ def setup_environ(settings):
     simpler setup.
     """
     current_dir = os.path.dirname(__file__)
-    sys.path.insert(0, os.path.join(current_dir, "../"))
-    sys.path.insert(0, os.path.join(current_dir, "../../"))
+    sys.path.insert(0, os.path.realpath(os.path.join(current_dir, "../")))
+    sys.path.insert(0, os.path.realpath(os.path.join(current_dir, "../../")))
     os.environ["DJANGO_SETTINGS_MODULE"] = settings
 
 setup_environ("oebfare.settings")
