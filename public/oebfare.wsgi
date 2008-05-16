@@ -56,8 +56,8 @@ def main():
         host, port = "127.0.0.1", 8000
     httpd = CherryPyWSGIServer((host, port), WSGIHandler(),
         server_name="localhost")
-    write_pid()
     daemonize()
+    write_pid()
     try:
         httpd.start()
     except KeyboardInterrupt:
