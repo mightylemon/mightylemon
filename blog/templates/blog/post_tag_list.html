@@ -3,6 +3,11 @@
 
 {% block title %}Entries tagged with "{{ tag }}" | {{ block.super }}{% endblock %}
 
+{% block feeds %}
+{# TODO: looking into a custom tag for the feed url so reverse can be used. #}
+<link rel="alternate" type="application/rss+xml" href="/blog/feeds/tags/{{ tag }}/" title="oebfare: Entries tagged with '{{ tag }}'" />
+{% endblock %}
+
 {% block sl %}
 <h1>Entries tagged with "{{ tag }}"</h1>
 {% if object_list %}
