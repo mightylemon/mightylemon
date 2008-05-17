@@ -1,9 +1,5 @@
 
-from django.conf import settings
-from django.template import loader, Context
-from django import http
 from django.views.generic import date_based
-
 from oebfare.blog.models import Post
 
 def privileged_post_queryset(view_func):
@@ -25,12 +21,6 @@ def homepage(request, **kwargs):
     defaults.update(kwargs)
     return date_based.archive_index(request, **defaults)
 homepage = privileged_post_queryset(homepage)
-
-def server_error(request, template_name="500.html"):
-    t = loader.get_template(template_name)
-    return http.HttpResponseServerError(t.render(Context({
-        "MEDIA_URL": settings.MEDIA_URL,
-    })))
 
 object_detail = privileged_post_queryset(date_based.object_detail)
 archive_day = privileged_post_queryset(date_based.archive_day)

@@ -3,7 +3,7 @@ from django.conf import settings
 from django.conf.urls.defaults import *
 
 # override the default handler500 so i can pass MEDIA_URL
-handler500 = "oebfare.blog.views.server_error"
+handler500 = "oebfare.views.server_error"
 
 urlpatterns = patterns("",
     url(r"^admin/", include("django.contrib.admin.urls")),
