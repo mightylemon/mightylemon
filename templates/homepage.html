@@ -7,7 +7,7 @@
 {% endblock %}
 
 {% block sl %}
-<h1>Latest Entries <a href="http://feeds.feedburner.com/oebfare-latest-entries"><img src="{{ MEDIA_URL }}images/feed-icon-14x14.png" /></a></h1>
+<h1>Latest Entries <a href="http://feeds.feedburner.com/oebfare-latest-entries"><img src="{{ MEDIA_URL }}images/feed-icon-14x14.png" alt="oebfare: Latest entries" /></a></h1>
 {% if posts %}
 {% for post in posts %}
     {% show_post_brief post %}
