@@ -4,7 +4,7 @@ try:
     import settings # test comment
 except ImportError, e:
     import sys
-    sys.stderr.write("canot find settings: %s\n" % e)
+    sys.stderr.write("cannot find settings: %s\n" % e)
     sys.exit(1)
 
 if __name__ == "__main__":
