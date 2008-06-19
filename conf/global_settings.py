@@ -1,4 +1,6 @@
 
+import os
+
 LOCAL_DEV = False
 
 DEBUG = False
@@ -67,6 +69,7 @@ MIDDLEWARE_CLASSES = (
 ROOT_URLCONF = "oebfare.urls"
 
 TEMPLATE_DIRS = (
+    os.path.join(os.path.dirname(__file__), "../templates"),
 )
 
 INSTALLED_APPS = (
