@@ -12,6 +12,8 @@ Dependancies
 ------------
 
  * Django trunk r7713 or better
+ * docutils
+ * pygments
  * django-comment-utils
  * django-tagging
  * django-evolution
