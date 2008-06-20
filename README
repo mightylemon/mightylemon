@@ -1,0 +1,17 @@
+
+oebfare is the source code that runs my blog at http://oebfare.com. I felt it
+would be good to release the source code freely so others can learn more
+about Django.
+
+License
+-------
+
+This source code is licensed under the BSD license.
+
+Dependancies
+------------
+
+ * Django trunk r7713 or better
+ * django-comment-utils
+ * django-tagging
+ * django-evolution
