@@ -11,7 +11,7 @@
 
 <hr />
 
-{% load comment_utils %}
+{% load moderated_comments %}
 {% load comments %}
 {% get_public_free_comment_list for blog.post post.pk as comment_list %}
 {% if comment_list %}
