@@ -30,12 +30,12 @@ pygments_directive.options = dict([(key, directives.flag) for key in VARIANTS])
 
 directives.register_directive("sourcecode", pygments_directive)
 
-class DjogHTMLWriter(html4css1.Writer):
+class HTMLWriter(html4css1.Writer):
     def __init__(self):
         html4css1.Writer.__init__(self)
-        self.translator_class = DjogHTMLTranslator
+        self.translator_class = HTMLTranslator
 
-class DjogHTMLTranslator(html4css1.HTMLTranslator):
+class HTMLTranslator(html4css1.HTMLTranslator):
     named_tags = []
     
     def visit_literal(self, node):
@@ -44,7 +44,7 @@ class DjogHTMLTranslator(html4css1.HTMLTranslator):
         raise nodes.SkipNode
 
 def to_html(value):
-    parts = publish_parts(source=value, writer=DjogHTMLWriter(),
+    parts = publish_parts(source=value, writer=HTMLWriter(),
         settings_overrides={"initial_header_level": 2})
     return mark_safe(parts["fragment"])
 register.filter("to_html", to_html)
