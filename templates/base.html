@@ -4,6 +4,7 @@
     <title>{% block title %}oebfare{% endblock %}</title>
     <link href="{{ MEDIA_URL }}css/screen.css" type="text/css" rel="stylesheet" />
     {% block feeds %}{% endblock %}
+    {% if not DEBUG %}
     <script type="text/javascript">
     /* <![CDATA[ */
         var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
@@ -17,6 +18,7 @@
         pageTracker._trackPageview();
     /* ]]> */
     </script>
+    {% endif %}
 </head>
     
 <body>
