@@ -1,12 +1,15 @@
 
 from django.conf import settings
 from django.conf.urls.defaults import *
+from django.contrib import admin
+
+admin.autodiscover()
 
 # override the default handler500 so i can pass MEDIA_URL
 handler500 = "oebfare.views.server_error"
 
 urlpatterns = patterns("",
-    url(r"^admin/", include("django.contrib.admin.urls")),
+    url(r"^admin/(.*)", admin.site.root),
     url(r"^blog/", include("oebfare.blog.urls")),
     url(r"^comments/", include("django.contrib.comments.urls.comments")),
     url(r"^links/", include("oebfare.links.urls")),

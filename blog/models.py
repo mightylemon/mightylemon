@@ -15,7 +15,7 @@ class PostManager(models.Manager):
 
 class Post(models.Model):
     title = models.CharField(_("title"), max_length=100)
-    slug = models.SlugField(_("slug"), unique=True, prepopulate_from=("title",))
+    slug = models.SlugField(_("slug"), unique=True)
     body = models.TextField(_("body"))
     active = models.BooleanField(default=False)
     create_date = models.DateTimeField(_("created"), default=datetime.now)
@@ -26,11 +26,6 @@ class Post(models.Model):
     
     def __unicode__(self):
         return self.title
-    
-    class Admin:
-        list_display = ("id", "title", "pub_date")
-        list_display_links = ("id", "title")
-        search_fields = ("title", "text")
     
     class Meta:
         verbose_name = _("post")
