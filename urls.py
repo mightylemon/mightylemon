@@ -9,6 +9,9 @@ admin.autodiscover()
 handler500 = "oebfare.views.server_error"
 
 urlpatterns = patterns("",
+    url(r"^about/$", "django.views.generic.simple.direct_to_template", {
+        "template": "about.html",
+    }),
     url(r"^admin/(.*)", admin.site.root),
     url(r"^blog/", include("oebfare.blog.urls")),
     url(r"^comments/", include("django.contrib.comments.urls.comments")),
