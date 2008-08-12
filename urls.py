@@ -19,7 +19,7 @@ urlpatterns = patterns("",
     url(r"^$", "oebfare.blog.views.homepage", name="oebfare_home"),
 )
 
-if settings.LOCAL_DEV:
+if settings.LOCAL_DEVELOPMENT:
     urlpatterns += patterns("django.views",
         url(r"^static/(?P<path>.*)", "static.serve", {
             "document_root": settings.MEDIA_ROOT,

@@ -1,7 +1,7 @@
 
 import os
 
-LOCAL_DEV = False
+LOCAL_DEVELOPMENT = False
 
 DEBUG = False
 TEMPLATE_DEBUG = DEBUG
