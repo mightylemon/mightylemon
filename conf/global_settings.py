@@ -79,7 +79,6 @@ INSTALLED_APPS = (
    
    "tagging",
    "comment_utils",
-   "django_evolution",
    
    "django.contrib.admin",
    "django.contrib.auth",
