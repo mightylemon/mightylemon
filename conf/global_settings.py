@@ -75,9 +75,7 @@ TEMPLATE_DIRS = (
 INSTALLED_APPS = (
    "oebfare.blog",
    "oebfare.links",
-   # See #5825 and #6128 about why apps with management commands must be
-   # referenced without the project in the import path.
-   "aggregator",
+   "oebfare.aggregator",
    
    "tagging",
    "comment_utils",
