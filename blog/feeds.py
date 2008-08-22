@@ -15,6 +15,9 @@ class LatestPostFeed(feeds.Feed):
     
     def items(self):
         return Post.objects.active()[:10]
+    
+    def item_pubdate(self, item):
+        return item.pub_date
 
 class LatestPostsByTagFeed(feeds.Feed):
     """
@@ -36,3 +39,6 @@ class LatestPostsByTagFeed(feeds.Feed):
     def items(self, obj):
         # TODO: look at possibly getting the filter through the manager
         return TaggedItem.objects.get_by_model(Post, obj).filter(active=True)
+    
+    def item_pubdate(self, item):
+        return item.pub_date
