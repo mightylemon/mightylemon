@@ -11,22 +11,21 @@
 
 <hr />
 
-{% load moderated_comments %}
 {% load comments %}
-{% get_public_free_comment_list for blog.post post.pk as comment_list %}
+{% get_comment_list for post as comment_list %}
 {% if comment_list %}
 <h2 id="c">Comments</h2>
 {% for comment in comment_list %}
 <div class="comment" id="c{{ comment.pk }}">
     <div class="{% cycle odd,even %}">
     {{ comment.comment|urlizetrunc:"40"|linebreaks }}
-    <p class="small">Posted by <strong>{{ comment.person_name }}</strong> on <strong>{{ comment.submit_date|date:"M j, Y" }}</strong> at <strong>{{ comment.submit_date|time:"f A" }}</strong></p>
+    <p class="small">Posted by <strong>{{ comment.user_name }}</strong> on <strong>{{ comment.submit_date|date:"M j, Y" }}</strong> at <strong>{{ comment.submit_date|time:"f A" }}</strong></p>
     </div>
 </div>
 {% endfor %}
 {% endif %}
 <h2>Add Your Comment</h2>
-{% free_comment_form for blog.post post.pk %}
+{% render_comment_form for post %}
 {% endblock %}
 
 {% block sr %}

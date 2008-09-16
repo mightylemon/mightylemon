@@ -14,7 +14,7 @@ urlpatterns = patterns("",
     }),
     url(r"^admin/(.*)", admin.site.root),
     url(r"^blog/", include("oebfare.blog.urls")),
-    url(r"^comments/", include("django.contrib.comments.urls.comments")),
+    url(r"^comments/", include("django.contrib.comments.urls")),
     url(r"^links/", include("oebfare.links.urls")),
     url(r"^$", "oebfare.blog.views.homepage", name="oebfare_home"),
 )

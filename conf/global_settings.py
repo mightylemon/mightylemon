@@ -78,7 +78,6 @@ INSTALLED_APPS = (
    "oebfare.aggregator",
    
    "tagging",
-   "comment_utils",
    
    "django.contrib.admin",
    "django.contrib.auth",
