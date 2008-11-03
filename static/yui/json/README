@@ -1,7 +1,10 @@
-*** version 2.4.1 ***
+The JSON Utility
+    Provides static methods to serialize objects to JSON strings and deserialize objects from JSON strings.
 
-No change
+    Three modules are available:
+        json           - Both parse and stringify functionality
+        json-parse     - Parse valid JSON strings into JavaScript objects
+        json-stringify - Serialize JavaScipt objects into valid JSON strings
 
-*** version 2.4.0 ***
-
-* Initial release
+3.0.0pr1
+    Initial release

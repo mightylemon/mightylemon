@@ -1,8 +1,5 @@
-get - Release Notes
+The Get Utility
+    Fetches and inserts script and link nodes
 
-2.4.1
-
-No change
-
-2.4.0
-   * Inital release
+3.0.0pr1
+    Initial release

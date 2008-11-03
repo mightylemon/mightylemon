@@ -1,16 +1,11 @@
-YUI Library - Base - Release Notes
+3.0.0PR1 - Initial release
 
-Version 2.4.0
-  * No change
+Module Name: "base"
+Documentation: http://developer.yahoo.com/yui/3/base
 
-Version 2.4.0
-
-  * Fixed typo in comments.
-  * Added margin-bottom:1em; for PRE element to match P
-  * Added color:#000 for legend element, accomodation for IE
-  * Added set width (equivilant to 160px but set in EMs) for input's
-    width type = text or password, and for textareas. 
-  
-Version 2.3.0
-
-  * Initial release.
+Base is designed to be a low level class from which other attribute 
+and event target based classes in the YUI library can be derived. 
+It provides a standard template for creating attribute based objects 
+across the library and provides a consistent init() and destroy() 
+sequence, by chaining initialization (initializer) and destruction 
+(destructor) methods for the class hierarcy.
