@@ -78,6 +78,7 @@ INSTALLED_APPS = (
    "blog",
    "links",
    "aggregator",
+   "wsgi",
    
    "tagging",
    
