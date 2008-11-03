@@ -130,3 +130,21 @@ hr {
     margin: 0 0 1.4em;
     border: none;
 }
+/* reference:
+ *   http://www.positioniseverything.net/easyclearing.html
+ *   http://www.zeldman.com/2006/10/27/ie7fixes1/
+ *      comment by michael on 10/28/2006
+ */
+.clearfix {
+    min-height: 1%;
+}
+.clearfix:after {
+    content: ".";
+    display: block;
+    height: 0;
+    clear: both;
+    visibility: hidden;
+}
+/* hides from ie5-mac \*/
+* html .clearfix { height: 1%; }
+/* end hide from ie5-mac */

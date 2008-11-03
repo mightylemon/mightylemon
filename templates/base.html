@@ -67,36 +67,42 @@
                     <div id="sm" class="yui-u">
                         <div>
                             {% block sm %}
-                            <h2>Hyperlinks <a href="http://feeds.feedburner.com/oebfare-latest-links"><img src="{{ MEDIA_URL }}images/feed-icon-14x14.png" alt="oebfare: Latest Links" /></a></h2>
-                            {% load link_tags %}
-                            {% get_links as links limit 5 %}
-                            {% if links %}
-                            {% for link in links %}
-                            <p><a href="{{ link.url }}">{{ link.name }}</a> - {{ link.description }}</p>
-                            {% endfor %}
-                            {% else %}
-                            <p>No links.</p>
-                            {% endif %}
-                            <h2>Tags</h2>
-                            {% load tagging_tags %}
-                            {% tags_for_model blog.Post as post_tags %}
-                            {% if post_tags %}
-                            <div class="tags">
+                            <div>
+                                <h2>Hyperlinks <a href="http://feeds.feedburner.com/oebfare-latest-links"><img src="{{ MEDIA_URL }}images/feed-icon-14x14.png" alt="oebfare: Latest Links" /></a></h2>
+                                {% load link_tags %}
+                                {% get_links as links limit 5 %}
+                                {% if links %}
+                                {% for link in links %}
+                                <p><a href="{{ link.url }}">{{ link.name }}</a> - {{ link.description }}</p>
+                                {% endfor %}
+                                {% else %}
+                                <p>No links.</p>
+                                {% endif %}
+                            </div>
+                            <div class="clearfix">
+                                <h2>Tags</h2>
+                                {% load tagging_tags %}
+                                {% tags_for_model blog.Post as post_tags %}
+                                {% if post_tags %}
+                                <div class="tags">
+                                    <ul>
+                                        {% for tag in post_tags %}
+                                        <li><a href="{% url blog_tag_detail tag %}">{{ tag }}</a></li>
+                                        {% endfor %}
+                                    </ul>
+                                </div>
+                                {% else %}
+                                <p>No tags.</p>
+                                {% endif %}
+                            </div>
+                            <div>
+                                <h2>Archive</h2>
                                 <ul>
-                                    {% for tag in post_tags %}
-                                    <li><a href="{% url blog_tag_detail tag %}">{{ tag }}</a></li>
+                                    {% for archive_date in date_list %}
+                                    <li><a href="{% url blog_archive_year archive_date.year %}">{{ archive_date.year }}</a></li>
                                     {% endfor %}
                                 </ul>
                             </div>
-                            {% else %}
-                            <p>No tags.</p>
-                            {% endif %}
-                            <h2>Archive</h2>
-                            <ul>
-                                {% for archive_date in date_list %}
-                                <li><a href="{% url blog_archive_year archive_date.year %}">{{ archive_date.year }}</a></li>
-                                {% endfor %}
-                            </ul>
                             {% endblock %}
                         </div>
                     </div>
