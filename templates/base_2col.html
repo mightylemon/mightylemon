@@ -2,7 +2,23 @@
 
 {% block grid_class %}yui-g{% endblock %}
 {% block content %}
-<div id="sl" class="yui-u first">
+<div class="yui-main">
+    <div class="yui-b">
+        <div class="yui-gc">
+            <div class="yui-u first">
+                {% block sl %}{% endblock %}
+            </div>
+            <div id="sr" class="yui-u">
+                <div>
+                    {% block sr %}
+                    {% endblock %}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% comment %}<div id="sl" class="yui-u first">
     <div>
         {% block sl %}{% endblock %}
     </div>
@@ -14,5 +30,5 @@
         <h2>Archives</h2>
         {% endblock %}
     </div>
-</div>
+</div>{% endcomment %}
 {% endblock %}

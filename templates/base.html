@@ -2,7 +2,11 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
     <title>{% block title %}oebfare{% endblock %}</title>
-    <link href="{{ MEDIA_URL }}css/screen.css" type="text/css" rel="stylesheet" />
+    <link rel="stylesheet" type="text/css" href="{{ MEDIA_URL }}yui/cssreset/reset-min.css" />
+    <link rel="stylesheet" type="text/css" href="{{ MEDIA_URL }}yui/cssfonts/fonts-min.css" />
+    <link rel="stylesheet" type="text/css" href="{{ MEDIA_URL }}yui/cssgrids/grids-min.css" />
+    <link rel="stylesheet" type="text/css" href="{{ MEDIA_URL }}yui/cssbase/base-min.css">
+    <link rel="stylesheet" type="text/css" href="{{ MEDIA_URL }}css/current.css" />
     {% block feeds %}{% endblock %}
     {% if not debug %}
     <script type="text/javascript">
@@ -22,83 +26,79 @@
 </head>
     
 <body>
-    <div id="{% block doc_id %}doc3{% endblock %}">
+    <div class="yui-d0">
         <div id="hd">
             <a href="{% url oebfare_home %}"><img src="{{ MEDIA_URL }}images/oebfare.png" alt="oebfare" /></a>
         </div>
-        
-        <div id="bd">
-            <div class="{% block grid_class %}yui-gb{% endblock %}">
-                {% block content %}
-                <div id="sl" class="yui-u first">
-                    <div>
+        {% block content %}
+        <div class="yui-main">
+            <div class="yui-b">
+                <div class="yui-gb">
+                    <div class="yui-u first">
                         {% block sl %}{% endblock %}
                     </div>
-                </div>
+                    <div id="sr" class="yui-u">
+                        <div>
+                            {% block sr %}
+                            <h2>About Me</h2>
+                            <p>
+                                <img src="http://www.gravatar.com/avatar.php?size=50&amp;gravatar_id=b7472bc7aa45c70641c299e9408b78ab" alt="gravatar for brosner" align="left" style="padding: 5px;" />
+                                My name is Brian Rosner. I am a 22-year old web
+                                developer. I am currently employed at <a href="http://www.churchpartner.com/">ChurchPartner</a>.
+                                I am a Django core developer. I enjoy coding in
+                                <a href="http://python.org/">Python</a>, C, <a href="http://www.erlang.org/">Erlang</a>, HTML, CSS and Javascript.
+                                <a href="/about/">More ...</a>
+                            </p>
                 
-                <div id="sm" class="yui-u">
-                    <div>
-                        {% block sm %}
-                        <h2>Hyperlinks <a href="http://feeds.feedburner.com/oebfare-latest-links"><img src="{{ MEDIA_URL }}images/feed-icon-14x14.png" alt="oebfare: Latest Links" /></a></h2>
-                        {% load link_tags %}
-                        {% get_links as links limit 5 %}
-                        {% if links %}
-                        {% for link in links %}
-                        <p><a href="{{ link.url }}">{{ link.name }}</a> - {{ link.description }}</p>
-                        {% endfor %}
-                        {% else %}
-                        <p>No links.</p>
-                        {% endif %}
-                        
-                        <h2>Tags</h2>
-                        {% load tagging_tags %}
-                        {% tags_for_model blog.Post as post_tags %}
-                        {% if post_tags %}
-                        <div class="tags">
+                            <h2>Elsewhere</h2>
                             <ul>
-                                {% for tag in post_tags %}
-                                <li><a href="{% url blog_tag_detail tag %}">{{ tag }}</a></li>
-                                {% endfor %}
+                                <li><a href="http://pownce.com/brosner/" rel="me">Pownce</a></li>
+                                <li><a href="http://twitter.com/brosner" rel="me">Twitter</a></li>
+                                <li><a href="http://digg.com/users/brosner" rel="me">Digg</a></li>
+                                <li><a href="http://github.com/brosner" rel="me">GitHub</a></li>
+                                <li><a href="http://wakoopa.com/brosner" rel="me">Wakoopa</a></li>
+                                <li><a href="http://www.last.fm/user/brosner/" rel="me">Last.fm</a></li>
+                                <li><a href="http://flickr.com/photos/brosner" rel="me">Flickr</a></li>
+                                <li><a href="http://djangopeople.net/brosner/" rel="me">DjangoPeople</a></li>
                             </ul>
+                            {% endblock %}
                         </div>
-                        {% else %}
-                        <p>No tags.</p>
-                        {% endif %}
-                        {% endblock %}
                     </div>
-                </div>
+                    <div id="sm" class="yui-u">
+                        <div>
+                            {% block sm %}
+                            <h2>Hyperlinks <a href="http://feeds.feedburner.com/oebfare-latest-links"><img src="{{ MEDIA_URL }}images/feed-icon-14x14.png" alt="oebfare: Latest Links" /></a></h2>
+                            {% load link_tags %}
+                            {% get_links as links limit 5 %}
+                            {% if links %}
+                            {% for link in links %}
+                            <p><a href="{{ link.url }}">{{ link.name }}</a> - {{ link.description }}</p>
+                            {% endfor %}
+                            {% else %}
+                            <p>No links.</p>
+                            {% endif %}
                 
-                <div id="sr" class="yui-u">
-                    <div>
-                        {% block sr %}
-                        <h2>About Me</h2>
-                        <p>
-                            <img src="http://www.gravatar.com/avatar.php?size=50&amp;gravatar_id=b7472bc7aa45c70641c299e9408b78ab" alt="gravatar for brosner" align="left" style="padding: 5px;" />
-                            My name is Brian Rosner. I am a 22-year old web
-                            developer. I am currently employed at <a href="http://www.churchpartner.com/">ChurchPartner</a>.
-                            I am a Django core developer. I enjoy coding in
-                            <a href="http://python.org/">Python</a>, C, <a href="http://www.erlang.org/">Erlang</a>, HTML, CSS and Javascript.
-                            <a href="/about/">More ...</a>
-                        </p>
-                        
-                        <h2>Elsewhere</h2>
-                        <ul>
-                            <li><a href="http://pownce.com/brosner/" rel="me">Pownce</a></li>
-                            <li><a href="http://twitter.com/brosner" rel="me">Twitter</a></li>
-                            <li><a href="http://digg.com/users/brosner" rel="me">Digg</a></li>
-                            <li><a href="http://github.com/brosner" rel="me">GitHub</a></li>
-                            <li><a href="http://wakoopa.com/brosner" rel="me">Wakoopa</a></li>
-                            <li><a href="http://www.last.fm/user/brosner/" rel="me">Last.fm</a></li>
-                            <li><a href="http://flickr.com/photos/brosner" rel="me">Flickr</a></li>
-                            <li><a href="http://djangopeople.net/brosner/" rel="me">DjangoPeople</a></li>
-                        </ul>
-                        {% endblock %}
+                            <h2>Tags</h2>
+                            {% load tagging_tags %}
+                            {% tags_for_model blog.Post as post_tags %}
+                            {% if post_tags %}
+                            <div class="tags">
+                                <ul>
+                                    {% for tag in post_tags %}
+                                    <li><a href="{% url blog_tag_detail tag %}">{{ tag }}</a></li>
+                                    {% endfor %}
+                                </ul>
+                            </div>
+                            {% else %}
+                            <p>No tags.</p>
+                            {% endif %}
+                            {% endblock %}
+                        </div>
                     </div>
                 </div>
-                {% endblock %}
             </div>
         </div>
-        
+        {% endblock %}
         <div id="ft">
             &copy; 2007 - 2008 Brian Rosner
         </div>
