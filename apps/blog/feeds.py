@@ -4,7 +4,7 @@ from django.core.exceptions import ObjectDoesNotExist
 
 from tagging.models import Tag, TaggedItem
 
-from oebfare.blog.models import Post
+from blog.models import Post
 
 class LatestPostFeed(feeds.Feed):
     """

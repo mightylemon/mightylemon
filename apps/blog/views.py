@@ -1,6 +1,6 @@
 
 from django.views.generic import date_based
-from oebfare.blog.models import Post
+from blog.models import Post
 
 def privileged_post_queryset(view_func):
     def _wrapped_view(request, **kwargs):

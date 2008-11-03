@@ -1,7 +1,7 @@
 
 from django.contrib.syndication import feeds
 
-from oebfare.links.models import Link
+from links.models import Link
 
 class LatestLinkFeed(feeds.Feed):
     """

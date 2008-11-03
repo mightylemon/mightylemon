@@ -1,7 +1,7 @@
 
 from django.conf.urls.defaults import *
 
-from oebfare.links.feeds import LatestLinkFeed
+from links.feeds import LatestLinkFeed
 
 feeds = {
     "latest": LatestLinkFeed,

@@ -1,7 +1,7 @@
 
 from django.template import Library, Node
 
-from oebfare.links.models import Link
+from links.models import Link
 
 register = Library()
 

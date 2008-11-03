@@ -13,10 +13,10 @@ urlpatterns = patterns("",
         "template": "about.html",
     }),
     url(r"^admin/(.*)", admin.site.root),
-    url(r"^blog/", include("oebfare.blog.urls")),
+    url(r"^blog/", include("blog.urls")),
     url(r"^comments/", include("django.contrib.comments.urls")),
-    url(r"^links/", include("oebfare.links.urls")),
-    url(r"^$", "oebfare.blog.views.homepage", name="oebfare_home"),
+    url(r"^links/", include("links.urls")),
+    url(r"^$", "blog.views.homepage", name="oebfare_home"),
 )
 
 if settings.LOCAL_DEVELOPMENT:

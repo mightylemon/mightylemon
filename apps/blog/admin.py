@@ -1,6 +1,6 @@
 
 from django.contrib import admin
-from oebfare.blog.models import Post
+from blog.models import Post
 
 class PostAdmin(admin.ModelAdmin):
     list_display = ("id", "title", "pub_date")

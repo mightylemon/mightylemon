@@ -75,9 +75,9 @@ TEMPLATE_DIRS = (
 )
 
 INSTALLED_APPS = (
-   "oebfare.blog",
-   "oebfare.links",
-   "oebfare.aggregator",
+   "blog",
+   "links",
+   "aggregator",
    
    "tagging",
    

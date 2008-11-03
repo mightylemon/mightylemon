@@ -1,9 +1,9 @@
 
 from django.conf.urls.defaults import *
 
-from oebfare.blog.models import Post
-from oebfare.blog.views import *
-from oebfare.blog.feeds import LatestPostFeed, LatestPostsByTagFeed
+from blog.models import Post
+from blog.views import *
+from blog.feeds import LatestPostFeed, LatestPostsByTagFeed
 
 feeds = {
     "latest": LatestPostFeed,
