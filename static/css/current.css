@@ -104,7 +104,7 @@ pre, code {
 div.form-line {
     margin-bottom: 10px;
 }
-div.error {
+div.error, div.note {
     border: 2px solid #8FACAB;
     background-color: #637978;
     padding: 5px;
