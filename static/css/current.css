@@ -98,6 +98,9 @@ pre, code {
     font-size: 93%;
     line-height: 130%;
 }
+.small {
+    font-size: 85%;
+}
 div.form-line {
     margin-bottom: 10px;
 }
