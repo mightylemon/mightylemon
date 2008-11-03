@@ -77,7 +77,12 @@
                             {% else %}
                             <p>No links.</p>
                             {% endif %}
-                
+                            <h2>Archive</h2>
+                            <ul>
+                                {% for archive_date in date_list %}
+                                <li><a href="{% url blog_archive_year archive_date.year %}">{{ archive_date.year }}</a></li>
+                                {% endfor %}
+                            </ul>
                             <h2>Tags</h2>
                             {% load tagging_tags %}
                             {% tags_for_model blog.Post as post_tags %}
