@@ -12,6 +12,10 @@ body {
     color: #ebe0d1;
 }
 
+body,h1,h2,h3,h4,h5,h6,p,ul,ol,dl,input,textarea {
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+
 a {
     color: #CDE9E9;
     text-decoration: none;
@@ -39,7 +43,8 @@ a:hover {
 }
 
 h1, h2, h3, h4, h5, h6 {
-    font-family: "Lucida Grande", "Bitstream Vera Sans", Verdana, sans-serif;
+    /* font-family: "Lucida Grande", "Bitstream Vera Sans", Verdana, sans-serif; */
+    text-shadow: #a9a9a9 0 0 1px;
 }
 
 h1 {
@@ -51,7 +56,7 @@ h2 {
 }
 
 p, li, dt, dl, blockquote {
-    font-size: 1em;
+    font-size: 13px;
     line-height: 1.7em;
 }
 
@@ -128,12 +133,15 @@ div.tags li a {
 }
 
 pre, code {
-    font: normal .9em "bitstream vera sans mono", monaco, "lucida console", "courier new", courier, serif;
+    /*font: normal 11px "bitstream vera sans mono", monaco, "lucida console", "courier new", courier, serif;*/
+    font-family: monospace;
+    font-size: 12px;
+    line-height: 14px;
 }
 code {
-    background: #637978;
-    color: #374140;
-    font-size: .89em;
+    /* background: #637978; */
+    /* color: #374140; */
+    font-size: 13px;
     padding: 1px 2px;
 }
 
