@@ -17,13 +17,14 @@ DEFAULT_PORT = getattr(settings, "WSGI_PORT", 8001)
 
 class Command(BaseCommand):
     option_list = BaseCommand.option_list + (
-        make_option("-h", "--host", dest="host", default="127.0.0.1"),
-        make_option("-p", "--port", dest="port", default=8001),
+        make_option("-h", "--host", dest="host", default=DEFAULT_HOST),
+        make_option("-p", "--port", dest="port", default=DEFAULT_PORT),
         make_option("-d", "--daemon", dest="daemonize", action="store_true"),
     )
     requires_model_validation = False
     
     def handle(self, *args, **options):
+        self.options = options
         self.server = CherryPyWSGIServer((options["host"], options["port"]), WSGIHandler())
         self.pidfile = os.path.join(settings.PROJECT_ROOT, "logs/wsgi.pid")
         try:
@@ -31,9 +32,9 @@ class Command(BaseCommand):
         except IndexError:
             print "You must provide an action. Possible actions are start, stop and restart."
             raise SystemExit
-        if options["daemonize"]:
-            daemonize()
         if action == "start":
+            print "Running %s:%d" % (options["host"], options["port"])
+            self.daemonize()
             self.start()
         elif action == "stop":
             pid = open(self.pidfile, "r").read()
@@ -41,6 +42,10 @@ class Command(BaseCommand):
         elif action == "restart":
             pid = open(self.pidfile, "r").read()
             self.restart(pid)
+    
+    def daemonize(self):
+        if self.options["daemonize"]:
+            daemonize()
     
     def start(self):
         writepid(self.pidfile)
@@ -55,6 +60,7 @@ class Command(BaseCommand):
     
     def restart(self, pid):
         self.stop(pid)
+        self.daemonize()
         self.start()
     
     def create_parser(self, prog_name, subcommand):
