@@ -55,6 +55,13 @@ h2 {
 }
 .entry p, .entry-brief p {
 }
+.comment > div {
+    padding: 0 10px;
+}
+
+.comment .even {
+    background: #637978;
+}
 div.tags {
     clear: both;
 }
