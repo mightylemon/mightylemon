@@ -11,7 +11,7 @@ This source code is licensed under the BSD license.
 Dependancies
 ------------
 
- * Django trunk r7713 or better
+ * Django 1.0.X
  * docutils
  * pygments
  * django-comment-utils
