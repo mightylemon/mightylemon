@@ -11,7 +11,7 @@ from django.core.management import setup_environ, execute_from_command_line
 
 try:
     import settings as settings_mod # Assumed to be in the same directory.
-except ImportError:
+except ImportError, e:
     sys.stderr.write("cannot find settings: %s\n" % e)
     sys.exit(1)
 
