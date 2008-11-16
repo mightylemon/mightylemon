@@ -8,6 +8,7 @@
     <link rel="stylesheet" type="text/css" href="{{ MEDIA_URL }}yui/cssbase/base-min.css">
     <link rel="stylesheet" type="text/css" href="{{ MEDIA_URL }}css/current.css" />
     <link rel="stylesheet" type="text/css" href="{{ MEDIA_URL }}css/pygments.css" />
+    {% block extrahead %}{% endblock %}
     {% block feeds %}{% endblock %}
     {% if not debug %}
     <script type="text/javascript">
