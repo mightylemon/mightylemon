@@ -62,7 +62,7 @@ class PostModerator(CommentModerator):
             "content_object": content_object,
             "site": Site.objects.get_current(),
         })
-        subject = '[%s] Comment: "%s"' % (
+        subject = _('[%s] Comment: "%s"') % (
             Site.objects.get_current().name,
             content_object,
         )
