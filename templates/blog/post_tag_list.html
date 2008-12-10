@@ -1,7 +1,8 @@
 {% extends "base_2col.html" %}
+{% load i18n %}
 {% load blog_utils %}
 
-{% block title %}Entries tagged with "{{ tag }}" | {{ block.super }}{% endblock %}
+{% block title %}{% blocktrans %}Entries tagged with "{{ tag }}"{% endblocktrans %} | {{ block.super }}{% endblock %}
 
 {% block feeds %}
 {# TODO: looking into a custom tag for the feed url so reverse can be used. #}
@@ -9,19 +10,19 @@
 {% endblock %}
 
 {% block sl %}
-<h1>Entries tagged with "{{ tag }}"</h1>
+<h1>{% blocktrans %}Entries tagged with "{{ tag }}"{% endblocktrans %}</h1>
 {% if object_list %}
 {% for post in object_list %}
     {% show_post_brief post %}
 {% endfor %}
 {% else %}
-<p>No entries.</p>
+<p>{% trans "No entries." %}</p>
 {% endif %}
 {% endblock %}
 
 {% block sr %}
 {% if related_tags %}
-<h2>Related Tags</h2>
+<h2>{% trans "Related Tags" %}</h2>
 <div class="tags">
     <ul>
         {% for related_tag in related_tags %}

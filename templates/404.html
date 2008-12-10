@@ -1,10 +1,12 @@
 {% extends "base_2col.html" %}
 
-{% block title %}Not Found | {{ block.super }}{% endblock %}
+{% load i18n %}
+
+{% block title %}{% trans "Not Found" %} | {{ block.super }}{% endblock %}
 
 {% block sl %}
-    <h1>Not Found</h1>
-    <p>Cannot find a page for {{ request_path }}.</p>
+    <h1>{% trans "Not Found" %}</h1>
+    <p>{% blocktrans %}Cannot find a page for {{ request_path }}.{% endblocktrans %}</p>
 {% endblock %}
 
 {% block sr %}

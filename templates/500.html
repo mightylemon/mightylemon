@@ -1,10 +1,12 @@
 {% extends "base_2col.html" %}
 
-{% block title %}Internal Server Error | {{ block.super }}{% endblock %}
+{% load i18n %}
+
+{% block title %}{% trans "Internal Server Error" %} | {{ block.super }}{% endblock %}
 
 {% block sl %}
-    <h1>Internal Server Error</h1>
-    <p>Did you just break my website?</p>
+    <h1>{% trans "Internal Server Error" %}</h1>
+    <p>{% trans "Did you just break my website?" %}</p>
 {% endblock %}
 
 {% block sr %}

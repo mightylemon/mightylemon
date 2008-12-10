@@ -1,15 +1,16 @@
 {% extends "base_2col.html" %}
+{% load i18n %}
 
-{% block title %}Comment posted successfully | {{ block.super }}{% endblock %}
+{% block title %}{% trans "Comment posted successfully" %} | {{ block.super }}{% endblock %}
 
 {% block sl %}
-<h1>Comment posted successfully</h1>
+<h1>{% trans "Comment posted successfully" %}</h1>
 
-<p>Thanks for contributing.</p>
+<p>{% trans "Thanks for contributing." %}</p>
 
 {% if object %}
 	<ul>
-		<li><a href="{{ object.get_absolute_url }}">View your comment</a></li>
+		<li><a href="{{ object.get_absolute_url }}">{% trans "View your comment" %}</a></li>
 	</ul>
 {% endif %}
 {% endblock %}
