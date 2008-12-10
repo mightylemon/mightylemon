@@ -14,5 +14,5 @@ Dependancies
  * Django 1.0.X
  * docutils
  * pygments
- * django-comment-utils
+ * django-comment-utils (http://github.com/jezdez/django-comment-utils/tree/master)
  * django-tagging

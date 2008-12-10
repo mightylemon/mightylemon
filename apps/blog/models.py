@@ -6,6 +6,7 @@ from django.utils.translation import ugettext_lazy as _
 
 from tagging.models import Tag
 from tagging.fields import TagField
+from comment_utils.moderation import CommentModerator, moderator
 
 
 class PostManager(models.Manager):
@@ -39,3 +40,8 @@ class Post(models.Model):
             "day": self.pub_date.strftime("%d"),
             "slug": self.slug,
         })
+
+class PostModerator(CommentModerator):
+    akismet = True
+
+moderator.register(Post, PostModerator)

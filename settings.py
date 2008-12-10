@@ -78,6 +78,7 @@ INSTALLED_APPS = (
    "wsgi",
    
    "tagging",
+   "comment_utils",
    
    "django.contrib.admin",
    "django.contrib.auth",
