@@ -1,0 +1,5 @@
+Django==1.0.2-final
+Pygments==1.0
+docutils==0.5
+tagging==0.3-pre
+wsgiref==0.1.2
