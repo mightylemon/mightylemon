@@ -16,4 +16,3 @@ Dependancies
  * pygments
  * django-comment-utils
  * django-tagging
- * django-evolution
