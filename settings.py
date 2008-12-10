@@ -1,7 +1,7 @@
 
 import os
 
-PROJECT_ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), "../"))
+PROJECT_ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__)))
 
 LOCAL_DEVELOPMENT = False
 
@@ -33,7 +33,7 @@ USE_I18N = False
 
 # Absolute path to the directory that holds media.
 # Example: "/home/media/media.lawrence.com/"
-MEDIA_ROOT = os.path.realpath(os.path.join(os.path.dirname(__file__), "../static"))
+MEDIA_ROOT = os.path.realpath(os.path.join(os.path.dirname(__file__), "static"))
 
 # URL that handles the media served from MEDIA_ROOT. Make sure to use a
 # trailing slash if there is a path component (optional in other cases).
@@ -44,9 +44,6 @@ MEDIA_URL = "/static/"
 # trailing slash.
 # Examples: "http://foo.com/media/", "/media/".
 ADMIN_MEDIA_PREFIX = "/media/"
-
-# Make this unique, and don"t share it with anybody.
-SECRET_KEY = "(sp6o)0b&d6t$g*a%g#1wics9^hxb6yoelw&y%od*-25-3)fq7"
 
 # List of callables that know how to import templates from various sources.
 TEMPLATE_LOADERS = (
@@ -71,7 +68,7 @@ MIDDLEWARE_CLASSES = (
 ROOT_URLCONF = "oebfare.urls"
 
 TEMPLATE_DIRS = (
-    os.path.join(os.path.dirname(__file__), "../templates"),
+    os.path.join(os.path.dirname(__file__), "templates"),
 )
 
 INSTALLED_APPS = (
@@ -89,3 +86,8 @@ INSTALLED_APPS = (
    "django.contrib.sessions",
    "django.contrib.sites",
 )
+
+try:
+    from local_settings import *
+except ImportError:
+    pass
