@@ -43,5 +43,6 @@ class Post(models.Model):
 
 class PostModerator(CommentModerator):
     akismet = True
+    email_notification = True
 
 moderator.register(Post, PostModerator)
