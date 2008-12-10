@@ -31,6 +31,7 @@ class Post(models.Model):
         verbose_name_plural = _("posts")
         ordering = ("-pub_date",)
     
+    @models.permalink
     def get_absolute_url(self):
         return ("blog_post_detail", (), {
             "year": self.pub_date.strftime("%Y"),
@@ -38,4 +39,3 @@ class Post(models.Model):
             "day": self.pub_date.strftime("%d"),
             "slug": self.slug,
         })
-    get_absolute_url = models.permalink(get_absolute_url)
