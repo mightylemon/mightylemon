@@ -1,16 +1,17 @@
+{% load i18n %}
 {% load tagging_tags %}
 {% load blog_utils %}
 {% load comments %}
 <div id="entry_{{ post.pk }}" class="entry-brief{% if last %} entry-last{% endif %}">
     <h2><a href="{{ post.get_absolute_url }}">{{ post.title }}</a></h2>
     {% get_comment_count for post as comment_count %}
-    <div class="published small">Published {{ post.pub_date|date:"M j, Y" }} at {{ post.pub_date|time:"f A" }}. <a href="{{ post.get_absolute_url }}#c">{{ comment_count }} comment{{ comment_count|pluralize }}</a></div>
-    <p>{% if can_edit %}<a href="/admin/blog/post/{{ post.pk }}/">Edit Post</a> | {% endif %}<a href="{{ post.get_absolute_url }}">Read Full Entry ...</a></p>
+    <div class="published small">{% blocktrans with post.pub_date|date:"M j, Y" as pub_date and post.pub_date|time:"f A" as pub_time %}Published {{ pub_date }} at {{ pub_time }}.{% endblocktrans %} <a href="{{ post.get_absolute_url }}#c">{% blocktrans count comment_count as counter %}{{ comment_count }} comment{% plural %}{{ comment_count }} comments{% endblocktrans %}</a></div>
+    <p>{% if can_edit %}<a href="/admin/blog/post/{{ post.pk }}/">{% trans "Edit Post" %}</a> | {% endif %}<a href="{{ post.get_absolute_url }}">{% trans "Read Full Entry ..." %}</a></p>
     {% tags_for_object post as tags %}
     {% if tags %}
     <div class="tags">
         <ul>
-            <li class="normal">Tags:</li>
+            <li class="normal">{% trans "Tags:" %}</li>
             {% for tag in tags %}
             <li><a href="{% url blog_tag_detail tag %}">{{ tag }}</a></li>
             {% endfor %}

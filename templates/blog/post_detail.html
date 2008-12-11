@@ -1,4 +1,5 @@
 {% extends "base_2col.html" %}
+{% load i18n %}
 {% load blog_utils %}
 
 {% block title %}{{ post.title }} | {{ block.super }}{% endblock %}
@@ -14,29 +15,29 @@
 {% load comments %}
 {% get_comment_list for post as comment_list %}
 {% if comment_list %}
-<h2 id="c">Comments</h2>
+<h2 id="c">{% trans "Comments" %}</h2>
 {% for comment in comment_list %}
 <div class="comment" id="c{{ comment.pk }}">
     <div class="{% cycle odd,even %}">
     {{ comment.comment|urlizetrunc:"40"|linebreaks }}
-    <p class="small">Posted by <strong>{{ comment.user_name }}</strong> on <strong>{{ comment.submit_date|date:"M j, Y" }}</strong> at <strong>{{ comment.submit_date|time:"f A" }}</strong></p>
+    <p class="small">{% blocktrans with comment.user_name as user_name and comment.submit_date|date:"M j, Y" as submit_date and comment.submit_date|time:"f A" as submit_time %}Posted by <strong>{{ user_name }}</strong> on <strong>{{ submit_date }}</strong> at <strong>{{ submit_time }}</strong>{% endblocktrans %}</p>
     </div>
 </div>
 {% endfor %}
 {% endif %}
-<h2>Add Your Comment</h2>
+<h2>{% trans "Add Your Comment" %}</h2>
 {% render_comment_form for post %}
 {% endblock %}
 
 {% block sr %}
-<h2>Entry Details</h2>
-<p>Published: <strong>{{ post.pub_date|date:"M j, Y" }} at {{ post.pub_date|time:"f A" }}</strong></p>
+<h2>{% trans "Entry Details" %}</h2>
+<p>{% blocktrans with post.pub_date|date:"M j, Y" as pub_date and post.pub_date|time:"f A" as pub_time %}Published: <strong>{{ pub_date }} at {{ pub_time }}</strong>{% endblocktrans %}</p>
 {% load tagging_tags %}
 {% tags_for_object post as tags %}
 {% if tags %}
 <div class="tags">
     <ul>
-        <li class="normal">Tags:</li>
+        <li class="normal">{% trans "Tags:" %}</li>
         {% for tag in tags %}
         <li><a href="{% url blog_tag_detail tag %}">{{ tag }}</a></li>
         {% endfor %}

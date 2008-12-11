@@ -1,15 +1,16 @@
 {% extends "base_2col.html" %}
+{% load i18n %}
 {% load blog_utils %}
 
-{% block title %}Entries for {{ day|date:"M j, Y" }} | {{ block.super }}{% endblock %}
+{% block title %}{% blocktrans day|date:"M j, Y" as date %}Entries for {{ date }}{% endblocktrans %} | {{ block.super }}{% endblock %}
 
 {% block sl %}
-<h1>Entries for {{ day|date:"M j, Y" }}</h1>
+<h1>{% blocktrans day|date:"M j, Y" as date %}Entries for {{ date }}{% endblocktrans %}</h1>
 {% if object_list %}
 {% for post in object_list %}
     {% show_post_brief post %}
 {% endfor %}
 {% else %}
-<p>No entries.</p>
+<p>{% trans "No entries." %}</p>
 {% endif %}
 {% endblock %}

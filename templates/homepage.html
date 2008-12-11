@@ -1,5 +1,11 @@
 {% extends "base.html" %}
+{% load i18n %}
 {% load blog_utils %}
+
+{% block extrahead %}
+<link rel="openid.server" href="http://www.myopenid.com/server" />
+<link rel="openid.delegate" href="http://brosner.myopenid.com/" />
+{% endblock %}
 
 {% block feeds %}
 <link rel="alternate" type="application/rss+xml" href="http://feeds.feedburner.com/oebfare-latest-entries" title="oebfare: Latest Entries" />
@@ -7,12 +13,12 @@
 {% endblock %}
 
 {% block sl %}
-<h1>Latest Entries <a href="http://feeds.feedburner.com/oebfare-latest-entries"><img src="{{ MEDIA_URL }}images/feed-icon-14x14.png" alt="oebfare: Latest entries" /></a></h1>
+<h1>{% trans "Latest Entries" %} <a href="http://feeds.feedburner.com/oebfare-latest-entries"><img src="{{ MEDIA_URL }}images/feed-icon-14x14.png" alt="oebfare: Latest entries" /></a></h1>
 {% if posts %}
 {% for post in posts %}
     {% show_post_brief post %}
 {% endfor %}
 {% else %}
-<p>No entries.</p>
+<p>{% trans "No entries." %}</p>
 {% endif %}
 {% endblock %}
