@@ -53,7 +53,7 @@ class PostModerator(CommentModerator):
         """
         Use django-mailer for mail delivery.
         """
-        if not self.email_notification:
+        if not self.email_notification and not comment.is_public:
             return
         recipient_list = [manager_tuple[1] for manager_tuple in settings.MANAGERS]
         t = loader.get_template("comment_utils/comment_notification_email.txt")
