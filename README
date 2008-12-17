@@ -11,7 +11,7 @@ This source code is licensed under the BSD license.
 Dependancies
 ------------
 
- * Django 1.0.X
+ * Django 1.0.1+
  * docutils
  * pygments
  * django-comment-utils (http://github.com/jezdez/django-comment-utils/tree/master)
