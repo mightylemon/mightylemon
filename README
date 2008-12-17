@@ -16,3 +16,65 @@ Dependancies
  * pygments
  * django-comment-utils (http://github.com/jezdez/django-comment-utils/tree/master)
  * django-tagging
+
+Future users
+------------
+
+Since this code is publically available I encourage people to actually use it. 
+With that said, it would be a good idea to provide some nice details about
+how to use it.
+
+You likely already cloned it from GitHub. If not here is how you might do
+that::
+
+    git clone git://github.com/brosner/oebfare.git
+
+If for any reason GitHub is down or inaccesible to you I have mirrored the
+repository and can be cloned like::
+
+    git clone git://oebfare.com/oebfare.git
+
+You are now all set with the source code.
+
+To get it running you will need to ensure you have the dependencies fulfilled.
+I am going to assume that is already done. You are now going to want to make
+a ``local_settings.py`` file where you can add in your own settings. The most
+common settings that get set here are:
+
+ * ``LOCAL_DEVELOPMENT``
+ * ``DEBUG``
+ * ``DATABASE_ENGINE``
+ * ``DATABASE_HOST``
+ * ``DATABASE_NAME``
+ * ``DATABASE_PASSWORD``
+ * ``DATABASE_PORT``
+ * ``DATABASE_USER``
+ * ``EMAIL_HOST``
+ * ``EMAIL_HOST_PASSWORD``
+ * ``EMAIL_HOST_USER``
+ * ``EMAIL_PORT``
+ * ``EMAIL_SUBJECT_PREFIX``
+ * ``EMAIL_USE_TLS``
+ * ``MEDIA_ROOT``
+ * ``MEDIA_URL``
+
+This is by no means a complete list. This were the ones I have needed to
+configure myself. You will have to setup your database settings so be sure
+to set those up as they are required.
+
+I have a special setting named ``LOCAL_DEVELOPMENT`` that is used to control
+whether media in ``MEDIA_ROOT`` is served up at ``MEDIA_URL`` by default when
+running ``runserver``. This is handy for testing, but please do not use it
+in production. The setting name should defer that I hope.
+
+Once you have your database settings all set you can now::
+
+    ./manage.py syncdb
+
+Then::
+
+    ./manage.py runserver
+
+The blog is going to look exactly like mine, but the idea is that you can
+change whatever you want or ignore everything I said an copy out the apps you
+want in your project.
