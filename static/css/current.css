@@ -151,3 +151,14 @@ hr {
 /* hides from ie5-mac \*/
 * html .clearfix { height: 1%; }
 /* end hide from ie5-mac */
+table#comments td.comment_avatar img {
+    border: 1px solid #637978;
+}
+table#comments td {
+    border: none;
+    margin: 0;
+}
+table#comments td h3 {
+    padding: 0px;
+    margin: 0px 0px 5px 0px;
+}

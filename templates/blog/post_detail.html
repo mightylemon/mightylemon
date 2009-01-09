@@ -1,6 +1,7 @@
 {% extends "base_2col.html" %}
 {% load i18n %}
 {% load blog_utils %}
+{% load gravatar_tags %}
 
 {% block title %}{{ post.title }} | {{ block.super }}{% endblock %}
 
@@ -16,14 +17,28 @@
 {% get_comment_list for post as comment_list %}
 {% if comment_list %}
 <h2 id="c">{% trans "Comments" %}</h2>
+{# @@@ cheat and use a table to make things easier #}
+<table id="comments">
 {% for comment in comment_list %}
+    <tr id="c{{ comment.pk }}">
+        <td class="comment_avatar" valign="top">{% gravatar_img_for_email comment.email 50 %}</td>
+        <td valign="top">
+            <h3>{% blocktrans with comment.user_name as user_name %}{{ user_name }}{% endblocktrans %} said...</h3>
+            <div>
+                {{ comment.comment|urlizetrunc:"40"|linebreaks }}
+            </div>
+        </td>
+    </tr>
+{% comment %}
 <div class="comment" id="c{{ comment.pk }}">
     <div class="{% cycle odd,even %}">
     {{ comment.comment|urlizetrunc:"40"|linebreaks }}
     <p class="small">{% blocktrans with comment.user_name as user_name and comment.submit_date|date:"M j, Y" as submit_date and comment.submit_date|time:"f A" as submit_time %}Posted by <strong>{{ user_name }}</strong> on <strong>{{ submit_date }}</strong> at <strong>{{ submit_time }}</strong>{% endblocktrans %}</p>
     </div>
 </div>
+{% endcomment %}
 {% endfor %}
+</table>
 {% endif %}
 <h2>{% trans "Add Your Comment" %}</h2>
 {% render_comment_form for post %}

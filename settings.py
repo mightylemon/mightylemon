@@ -80,6 +80,7 @@ INSTALLED_APPS = (
    "tagging",
    "mailer",
    "comment_utils",
+   "gravatar",
    
    "django.contrib.admin",
    "django.contrib.auth",
