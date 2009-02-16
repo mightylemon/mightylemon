@@ -3,3 +3,4 @@ Pygments==1.0
 docutils==0.5
 http://django-tagging.googlecode.com/svn/trunk/
 -e svn+http://django-mailer.googlecode.com/svn/trunk/#egg=django-mailer
+-e svn+http://django-gravatar.googlecode.com/svn/trunk/#egg=django-gravatar
