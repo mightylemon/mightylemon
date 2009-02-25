@@ -18,13 +18,6 @@ except ImportError, e:
 # setup the environment before we start accessing things in the settings.
 setup_environ(settings_mod)
 
-if hasattr(settings, "PINAX_ROOT"):
-    path = addsitedir(join(settings.PINAX_ROOT, "libs/external_libs"), set())
-    if path:
-        sys.path = list(path) + sys.path
-    sys.path.insert(0, join(settings.PINAX_ROOT, "apps/external_apps"))
-    sys.path.insert(0, join(settings.PINAX_ROOT, "apps/local_apps"))
-
 sys.path.insert(0, join(settings.PROJECT_ROOT, "apps"))
 
 if __name__ == "__main__":
