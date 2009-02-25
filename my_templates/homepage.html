@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% load blog_utils %}
+
+{% block feeds %}
+{% endblock %}
+
+{% block content %}
+{% if posts %}
+{% for post in posts %}
+{% ifchanged post.pub_date.month %}<h1>{{ post.pub_date|date:"F" }}</h1>{% endifchanged %}
+    {% show_post_brief post %}
+{% endfor %}
+{% else %}
+<p>No entries.</p>
+{% endif %}
+{% endblock %}

@@ -1,0 +1,19 @@
+{% extends "base_2col.html" %}
+{% block sl %}
+<h1>{{ object }}</h1>
+<p>{{ object.description }}</p>
+{% endblock %}
+{% block sr %}
+<h1>Meta</h1>
+<dl>
+  <dt>Client</dt>
+  <dd>{{ object.client }}</dd>
+
+  <dt>Disciplines</dt>
+  <dd>{{ object.disciplines }}</dd>
+
+  <dt>Completed</dt>
+  <dd>{{ object.completion_date|date:"N Y" }}</dd>
+
+</dl>
+{% endblock %}
