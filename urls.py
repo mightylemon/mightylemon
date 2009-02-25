@@ -12,6 +12,10 @@ urlpatterns = patterns("",
     url(r"^about/$", "django.views.generic.simple.direct_to_template", {
         "template": "about.html",
     }),
+    url(r"^hire-me/$", "django.views.generic.simple.direct_to_template", {
+    "template": "hire-me.html",
+    }),
+    url(r"^admin/doc/", include("django.contrib.admindocs.urls")),
     url(r"^admin/(.*)", admin.site.root),
     url(r"^blog/", include("blog.urls")),
     url(r"^comments/", include("django.contrib.comments.urls")),
