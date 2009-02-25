@@ -1,3 +1,5 @@
 local_settings.py
 dev.db
 pip-log.txt
+apache
+my_static/uploads
