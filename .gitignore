@@ -1,4 +1,5 @@
 *.pyc
+*.db
 local_settings.py
 dev.db
 pip-log.txt
