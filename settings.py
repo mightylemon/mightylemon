@@ -45,6 +45,8 @@ MEDIA_URL = "/static/"
 # Examples: "http://foo.com/media/", "/media/".
 ADMIN_MEDIA_PREFIX = "/media/"
 
+AUTH_PROFILE_MODULE = 'auth.userprofile'
+
 # List of callables that know how to import templates from various sources.
 TEMPLATE_LOADERS = (
     "django.template.loaders.filesystem.load_template_source",
@@ -54,6 +56,7 @@ TEMPLATE_LOADERS = (
 TEMPLATE_CONTEXT_PROCESSORS = (
     "django.core.context_processors.auth",
     "django.core.context_processors.debug",
+    "django.core.context_processors.request",
     "django.core.context_processors.i18n",
     "django.core.context_processors.media",
 )
@@ -63,6 +66,8 @@ MIDDLEWARE_CLASSES = (
     "django.contrib.sessions.middleware.SessionMiddleware",
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.middleware.doc.XViewMiddleware",
+
+    "auth.middleware.AuthorMiddleware",
 )
 
 ROOT_URLCONF = "oebfare.urls"
@@ -76,6 +81,7 @@ INSTALLED_APPS = (
    "links",
    "aggregator",
    "wsgi",
+   "auth",
    
    "tagging",
    "mailer",
