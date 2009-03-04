@@ -16,6 +16,8 @@ Dependancies
  * pygments
  * django-comment-utils (http://github.com/jezdez/django-comment-utils/tree/master)
  * django-tagging
+ * django-mailer
+ * django-gravatar
 
 Future users
 ------------
