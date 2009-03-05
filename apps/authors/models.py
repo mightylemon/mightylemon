@@ -9,4 +9,5 @@ class UserProfile(models.Model):
     user = models.ForeignKey(User, unique=True)
 
     full_name = models.CharField(max_length=60, blank=True)
+    nickname = models.CharField(max_length=30, blank=True)
     about_me = models.CharField(max_length=400, blank=True)

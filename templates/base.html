@@ -53,13 +53,13 @@
                 
                             <h2>Elsewhere</h2>
                             <ul>
-                                <li><a href="http://twitter.com/brosner" rel="me">Twitter</a></li>
-                                <li><a href="http://digg.com/users/brosner" rel="me">Digg</a></li>
-                                <li><a href="http://github.com/brosner" rel="me">GitHub</a></li>
-                                <li><a href="http://wakoopa.com/brosner" rel="me">Wakoopa</a></li>
-                                <li><a href="http://www.last.fm/user/brosner/" rel="me">Last.fm</a></li>
-                                <li><a href="http://flickr.com/photos/brosner" rel="me">Flickr</a></li>
-                                <li><a href="http://djangopeople.net/brosner/" rel="me">DjangoPeople</a></li>
+                                <li><a href="http://twitter.com/{{request.author.get_profile.nickname}}" rel="me">Twitter</a></li>
+                                <li><a href="http://digg.com/users/{{request.author.get_profile.nickname}}" rel="me">Digg</a></li>
+                                <li><a href="http://github.com/{{request.author.get_profile.nickname}}" rel="me">GitHub</a></li>
+                                <li><a href="http://wakoopa.com/{{request.author.get_profile.nickname}}" rel="me">Wakoopa</a></li>
+                                <li><a href="http://www.last.fm/user/{{request.author.get_profile.nickname}}/" rel="me">Last.fm</a></li>
+                                <li><a href="http://flickr.com/photos/{{request.author.get_profile.nickname}}" rel="me">Flickr</a></li>
+                                <li><a href="http://djangopeople.net/{{request.author.get_profile.nickname}}/" rel="me">DjangoPeople</a></li>
                             </ul>
                             {% endblock %}
                         </div>
