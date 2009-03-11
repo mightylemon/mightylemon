@@ -58,6 +58,7 @@
         {% for post in posts %}
         <li><a href="{{ post.get_absolute_url }}">{{ post.title }}</a></li>
         {% endfor %}
+        <li><a href="{% url blog_archive_full %}">&#8594; archive</a></li>
       </ul>
 
       <div>
@@ -69,8 +70,8 @@
     </div>
     
     <div id="footer">
-      <div id="archive"> 
-        <a href="/archive.html">Visit the Archive</a> 
+      <div id="archive">
+        <a href="{% url blog_archive_full %}">Visit the Archive</a>
       </div>
 
       (( copyright two thousand eight {{ request.author.get_profile.full_name }} ))
