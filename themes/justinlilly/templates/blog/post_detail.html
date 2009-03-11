@@ -1,0 +1,53 @@
+{% extends "base_2col.html" %}
+{% load blog_utils %}
+
+{% block title %}{{ post.title }} | {{ block.super }}{% endblock %}
+
+{% block sl %}
+<h1>{{ post.title }}</h1>
+<div class="entry">
+    {{ post.body|to_html }}
+</div>
+
+<hr />
+
+{% load comments %}
+{% get_comment_list for post as comment_list %}
+{% if comment_list %}
+<h2 id="c">Comments</h2>
+{% for comment in comment_list %}
+<div class="comment" id="c{{ comment.pk }}">
+    <div class="{% cycle odd,even %}">
+    {{ comment.comment|urlizetrunc:"40"|linebreaks }}
+    <p class="small">
+      Posted by 
+      {% if comment.url %}
+      <a href="{{ comment.url }}">{{ comment.user_name }}</a>
+      {% else %}
+      {{ comment.user_name }}
+      {% endif %}
+ on <strong>{{ comment.submit_date|date:"M j, Y" }}</strong> at <strong>{{ comment.submit_date|time:"f A" }}</strong></p>
+    </div>
+</div>
+{% endfor %}
+{% endif %}
+<h2 id="add-your-comment">Add Your Comment</h2>
+{% render_comment_form for post %}
+{% endblock %}
+
+{% block sr %}
+<h1>Meta</h1>
+<dl>
+  <dt>Published</dt>
+  <dd>{{ post.pub_date|date:"F j, Y" }}</dd>
+
+  {% load tagging_tags %}
+  {% tags_for_object post as tags %}
+  {% if tags %}
+  <dt>Tags</dt>
+  {% for tag in tags %}
+  <dd><a href="{% url blog_tag_detail tag %}">{{ tag }}</a></dd>
+  {% endfor %}
+  {% endif %}
+</dl>
+{% endblock %}
