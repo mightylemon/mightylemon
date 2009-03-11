@@ -24,11 +24,10 @@ class Post(models.Model):
     title = models.CharField(_("title"), max_length=100)
     slug = models.SlugField(_("slug"), unique=True)
     body = models.TextField(_("body"))
-    body_html = models.TextField(editable=False)
     markup_type = models.CharField(max_length=10, choices=(
         ("html", "HTML"),
         ("rst", "reStructuredText"),
-    ), default="rst") # rst as default for backward compatibilty
+    ), default="html")
     active = models.BooleanField(default=False)
     create_date = models.DateTimeField(_("created"), default=datetime.now)
     pub_date = models.DateTimeField(_("published"), default=datetime.now)
@@ -52,13 +51,7 @@ class Post(models.Model):
             "day": self.pub_date.strftime("%d"),
             "slug": self.slug,
         })
-    
-    def save(self, **kwargs):
-        if self.markup_type == "html":
-            self.body_html = self.body
-        elif self.markup_type == "rst":
-            self.body_html = rst_to_html(self.body)
-        super(Post, self).save(**kwargs)
+        
 
 class PostModerator(CommentModerator):
     akismet = True

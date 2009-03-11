@@ -50,8 +50,12 @@ def rst_to_html(value):
     return parts["fragment"]
     
 
-def to_html(value):
-    return mark_safe(rst_to_html(value))
+def to_html(obj):
+    if obj.markup_type == "html":
+        html = obj.body
+    elif obj.markup_type == "rst":
+        html = rst_to_html(obj.body)
+    return mark_safe(html)
 register.filter("to_html", to_html)
 
 def show_post_brief(context, post):
