@@ -31,10 +31,6 @@ SITE_ID = 1
 # to load the internationalization machinery.
 USE_I18N = False
 
-# Absolute path to the directory that holds media.
-# Example: "/home/media/media.lawrence.com/"
-MEDIA_ROOT = os.path.realpath(os.path.join(PROJECT_ROOT, "static"))
-
 # URL that handles the media served from MEDIA_ROOT. Make sure to use a
 # trailing slash if there is a path component (optional in other cases).
 # Examples: "http://media.lawrence.com", "http://example.com/media/"
@@ -72,9 +68,18 @@ MIDDLEWARE_CLASSES = (
 
 ROOT_URLCONF = "oebfare.urls"
 
+THEME = "oebfare"
+
+THEME_DIR = os.path.join(PROJECT_ROOT, "themes", THEME)
+
 TEMPLATE_DIRS = (
-    os.path.join(PROJECT_ROOT, "templates"),
+    #os.path.join(PROJECT_ROOT, "templates"),
+    os.path.join(PROJECT_ROOT, "themes", THEME, "templates"),
 )
+
+# Absolute path to the directory that holds media.
+# Example: "/home/media/media.lawrence.com/"
+MEDIA_ROOT = os.path.realpath(os.path.join(THEME_DIR, "static"))
 
 INSTALLED_APPS = (
    "blog",
