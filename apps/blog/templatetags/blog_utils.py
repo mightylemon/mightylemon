@@ -43,10 +43,15 @@ class HTMLTranslator(html4css1.HTMLTranslator):
         self.body.append("<code>%s</code>" % node.astext())
         raise nodes.SkipNode
 
-def to_html(value):
+
+def rst_to_html(value):
     parts = publish_parts(source=value, writer=HTMLWriter(),
         settings_overrides={"initial_header_level": 2})
-    return mark_safe(parts["fragment"])
+    return parts["fragment"]
+    
+
+def to_html(value):
+    return mark_safe(rst_to_html(value))
 register.filter("to_html", to_html)
 
 def show_post_brief(context, post):
