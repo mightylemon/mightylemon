@@ -10,4 +10,4 @@ class UserProfile(models.Model):
 
     full_name = models.CharField(max_length=60, blank=True)
     nickname = models.CharField(max_length=30, blank=True)
-    about_me = models.CharField(max_length=400, blank=True)
+    about_me = models.TextField(blank=True)
