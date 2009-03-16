@@ -92,6 +92,7 @@ INSTALLED_APPS = (
    "mailer",
    "comment_utils",
    "gravatar",
+   "elsewhere",
    
    "django.contrib.admin",
    "django.contrib.auth",

@@ -22,30 +22,19 @@ rocks. Seriously.</p>
 {% block sr %}
 <h1>Meta</h1>
 <h2>Contact</h2>
-<dl>  
-  <dt>AIM</dt>
-  <dd>justinlilly@gmail.com</dd>
-
-  <dt>MSN/gTalk</dt>
-  <dd>justinlilly@gmail.com</dd>
-
-  <dt>IRC</dt>
-  <dd>jlilly on freenode</dd>
-</dl>
+<ul id="contact_list">
+{% for profile in request.author.instant_messenger_profiles.all %}
+    <li>
+        {{ profile.profile_name }}: <a href="{{ profile.messenger_url }}">{{ profile.username }}</a>
+    </li>
+{% endfor %}
+</ul>
 <h2>Social Networks</h2>
 <ul id="social_network_list">
-  <li><a href="http://twitter.com/justinlilly/" rel="me">Twitter</a></li>
-  <li><a href="http://github.com/justinlilly/" rel="me">GitHub</a></li>
-  <li><a href="http://flickr.com/photos/justinlilly/" rel="me">Flickr</a></li>
-  <li><a href="https://launchpad.net/~justinlilly" rel="me">Launchpad</a></li>
-  <li><a href="http://justinlilly.myopenid.com/" rel="me">OpenId</a></li>
-  <li><a href="http://code.google.com/u/JustinLilly/" rel="me">Google Code</a></li>
-  <li><a href="http://readernaut.com/justinlilly/" rel="me">Readernaut</a></li>
-  <li><a href="http://friendfeed.com/justinlilly/" rel="me">FriendFeed</a></li>
-  <li><a href="http://djangopeople.net/justinlilly/" rel="me">Django People</a></li>
-  <li><a href="http://www.djangosnippets.org/users/justinlilly/" rel="me">Django Snippets</a></li>
-  <li><a href="http://pownce.com/justinlilly/" rel="me">Pownce</a></li>
-  <li><a href="http://delicious.com/justinlilly/" rel="me">Delicious</a></li>
-  <li><a href="http://www.last.fm/user/justinlilly" rel="me">Last.fm</a></li>
+{% for profile in request.author.social_network_profiles.all %}
+    <li>
+        <a href="{{ profile.profile_url }}" rel="me">{{ profile.profile_name }}</a>
+    </li>
+{% endfor %}
 </ul>
 {% endblock %}
