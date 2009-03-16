@@ -17,6 +17,7 @@ Dependancies
  * django-tagging
  * django-mailer
  * django-gravatar
+ * django-elsewhere
 
 Checking out the source
 -----------------------
