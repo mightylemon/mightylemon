@@ -47,8 +47,7 @@
                             <h2>About Me</h2>
                             <p>
                                 <img src="{% gravatar_for_email request.author.email 50 %}" alt="gravatar for {{ request.author.get_profile.nickname }}" align="left" style="padding: 5px;" />
-                                <p>{{ request.author.get_profile.about_me }}</p>
-                                <a href="/about/">More ...</a>
+                                <p>{{ request.author.get_profile.about_me }}<a href="/about/">More ...</a></p>
                             </p>
                 
                             <h2 style="clear:both;">Elsewhere</h2>
