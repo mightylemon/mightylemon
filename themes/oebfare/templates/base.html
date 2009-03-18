@@ -51,7 +51,23 @@
                             </p>
                 
                             <h2 style="clear:both;">Elsewhere</h2>
-                            {% include "elsewhere.html" %}
+                            <ul class="elsewhere">
+                                {% for profile in request.author.social_network_profiles.all %}
+                                    <li>
+                                        <a href="{{ profile.url }}" rel="me">{{ profile.name }}</a>
+                                    </li>
+                                {% endfor %}
+                                {% for profile in request.author.instant_messenger_profiles.all %}
+                                    <li>
+                                        {{ profile.name }}: <a href="{{ profile.url }}" rel="me">{{ profile.username }}</a>
+                                    </li>
+                                {% endfor %}
+                                {% for profile in request.author.website_profiles.all %}
+                                    <li>
+                                        <a href="{{ profile.url }}" rel="me">{{ profile.name }}</a>
+                                    </li>
+                                {% endfor %}
+                            </ul>
                             {% endblock %}
                         </div>
                     </div>
