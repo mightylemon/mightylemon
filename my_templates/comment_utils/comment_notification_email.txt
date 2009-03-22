@@ -1,3 +1,0 @@
-{% load i18n %}{% blocktrans with comment.name as comment_name and comment.comment as text %}A new comment was posted on {{ content_object }} by {{ comment_name }}:
-
-{{ text }}{% endblocktrans %}
