@@ -3,11 +3,10 @@
 {% load comments %}
 <div id="entry_{{ post.pk }}" class="entry-brief{% if last %} entry-last{% endif %} line_item">
   <div class="grid_1">
-    <!--    <img src="http://classic.tastynectar.com/tastes/classic/images/iconOther.png" name="ICON" /> -->
+    <h4 class="date">{{ post.pub_date|date:"j" }}</h4>
   </div>
   <div class="grid_11 alpha">
     <h2><a href="{{ post.get_absolute_url }}">{{ post.title }}</a></h2>
-    <h3>on the {{ post.pub_date|date:"jS" }}</h3>
   </div>
   {% tags_for_object post as tags %}
   <div class="tags grid_4 omega">

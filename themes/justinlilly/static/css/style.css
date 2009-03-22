@@ -31,9 +31,7 @@ ul#main-nav li a:hover { color: #fff22d; }
 div.line_item {
     width: 100%;
 }
-div.line_item img { 
-    line-height: 1.8em;
-}
+
 div.line_item > * {
     display: inline;
     float: left;
@@ -50,6 +48,11 @@ div.line_item h2 {
     font-size: 1.6em;
     margin: 0;
     display: inline;
+}
+div.line_item h4.date {
+    color: #999;
+    font-size: 1.75em;
+    margin: 3px auto;
 }
 
 div.content_bits {
