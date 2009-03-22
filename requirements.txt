@@ -7,3 +7,4 @@ http://django-tagging.googlecode.com/svn/trunk/
 -e svn+http://django-mailer.googlecode.com/svn/trunk/#egg=django-mailer
 -e svn+http://django-gravatar.googlecode.com/svn/trunk/#egg=django-gravatar
 -e git+git://github.com/jezdez/django-comment-utils.git#egg=django-comment-utils
+-e git+git://github.com/justinlilly/django-elsewhere.git#egg=django-elsewhere
