@@ -43,10 +43,19 @@ class HTMLTranslator(html4css1.HTMLTranslator):
         self.body.append("<code>%s</code>" % node.astext())
         raise nodes.SkipNode
 
-def to_html(value):
+
+def rst_to_html(value):
     parts = publish_parts(source=value, writer=HTMLWriter(),
         settings_overrides={"initial_header_level": 2})
-    return mark_safe(parts["fragment"])
+    return parts["fragment"]
+    
+
+def to_html(obj):
+    if obj.markup_type == "html":
+        html = obj.body
+    elif obj.markup_type == "rst":
+        html = rst_to_html(obj.body)
+    return mark_safe(html)
 register.filter("to_html", to_html)
 
 def show_post_brief(context, post):
@@ -56,3 +65,12 @@ def show_post_brief(context, post):
         "can_edit": context["user"].is_staff,
     }
 register.inclusion_tag("blog/post_brief.html", takes_context=True)(show_post_brief)
+
+@register.filter
+def date_microformat(d):
+    '''
+        Microformat version of a date.
+        2009-02-10T02:58:00+00:00 (ideal)
+        2009-02-09T17:54:41.181868-08:00 (mine)
+    '''
+    return d.isoformat()

@@ -12,15 +12,22 @@ from tagging.fields import TagField
 from mailer import send_mail
 from comment_utils.moderation import CommentModerator, moderator
 
+from blog.templatetags.blog_utils import rst_to_html
+
 
 class PostManager(models.Manager):
     def active(self):
         return self.filter(active=True)
+        
 
 class Post(models.Model):
     title = models.CharField(_("title"), max_length=100)
     slug = models.SlugField(_("slug"), unique=True)
     body = models.TextField(_("body"))
+    markup_type = models.CharField(max_length=10, choices=(
+        ("html", "HTML"),
+        ("rst", "reStructuredText"),
+    ), default="html")
     active = models.BooleanField(default=False)
     create_date = models.DateTimeField(_("created"), default=datetime.now)
     pub_date = models.DateTimeField(_("published"), default=datetime.now)
@@ -44,6 +51,7 @@ class Post(models.Model):
             "day": self.pub_date.strftime("%d"),
             "slug": self.slug,
         })
+        
 
 class PostModerator(CommentModerator):
     akismet = True

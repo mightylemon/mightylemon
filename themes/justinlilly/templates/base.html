@@ -1,0 +1,28 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+	  "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+  <head>
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+    <title>{% block title %}Justin Lilly{% endblock %}</title>
+    <link href="http://feeds.feedburner.com/justinlilly/" rel="alternate" type="application/rss+xml" title="RSS: Articles">
+    <script src="http://stats.justinlilly.com/mint/?js" type="text/javascript"></script>
+    <link rel="stylesheet" href="{{ MEDIA_URL }}css/style.css" type="text/css" media="screen" title="Default Stylesheet" charset="utf-8">
+    <link rel="stylesheet" href="{{ MEDIA_URL }}css/print.css" type="text/css" media="print" title="Print Stylesheet" charset="utf-8">
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.2.6/jquery.min.js"></script>
+  </head>
+  <body id="main">
+    <div id="container" class="container_16">
+      <div id="masthead" class="grid_16">
+	<a href="/"><h1 id="logo"><span>Justin Lilly</span></h1></a>
+	<ul id="main-nav" class="inline">
+	  <li><a href="/">Home</a></li>
+	  <li><a href="/blog/">Archives</a></li>
+	  <li><a href="/about/">About</a></li>
+	  <li><a href="/hire-me/">Hire Me</a></li>
+	</ul>
+      </div>
+      <div id="content" class="grid_16">
+        {% block content %}{% endblock %}
+    </div>
+  </body>
+</html>

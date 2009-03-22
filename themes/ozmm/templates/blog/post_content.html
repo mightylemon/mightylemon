@@ -1,0 +1,9 @@
+{% load blog_utils %}
+
+<div class="post hentry">
+    <h2><a href="{{ post.get_absolute_url }}" rel="bookmark" class="entry-title">&#8594; {{ post.title }}</a></h2>
+    <div class="date"><abbr class="updated" title="{{ post.pub_date|date_microformat }}">{{ post.pub_date|date:"l, F d, Y" }}</abbr></div>
+    <div class="entry-content">
+        {{ post|to_html }}
+    </div>
+</div>

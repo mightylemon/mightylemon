@@ -1,6 +1,8 @@
 
 from django.views.generic import date_based
 from blog.models import Post
+from django.template import RequestContext
+from django.shortcuts import render_to_response
 
 def privileged_post_queryset(view_func):
     def _wrapped_view(request, **kwargs):
@@ -27,3 +29,9 @@ archive_day = privileged_post_queryset(date_based.archive_day)
 archive_month = privileged_post_queryset(date_based.archive_month)
 archive_year = privileged_post_queryset(date_based.archive_year)
 archive_index = privileged_post_queryset(date_based.archive_index)
+
+def archive_full(request, **kwargs):
+    return render_to_response("blog/post_archive_full.html", {
+        'posts': kwargs["queryset"], # all posts
+    }, context_instance=RequestContext(request))
+archive_full = privileged_post_queryset(archive_full)

@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+
+{% block main %}
+<h2>&#8594; The ozmm Archives</h2>
+<ul id="archive-list">
+  {% for post in posts %}
+    <li><a href="{{ post.get_absolute_url }}">{{ post.title }}</a></li>
+  {% endfor %}
+</ul>
+{% endblock %}

@@ -1,0 +1,23 @@
+{% load tagging_tags %}
+{% load blog_utils %}
+{% load comments %}
+<div id="entry_{{ post.pk }}" class="entry-brief{% if last %} entry-last{% endif %} line_item">
+  <div class="grid_1">
+    <!--    <img src="http://classic.tastynectar.com/tastes/classic/images/iconOther.png" name="ICON" /> -->
+  </div>
+  <div class="grid_11 alpha">
+    <h2><a href="{{ post.get_absolute_url }}">{{ post.title }}</a></h2>
+    <h3>on the {{ post.pub_date|date:"jS" }}</h3>
+  </div>
+  {% tags_for_object post as tags %}
+  <div class="tags grid_4 omega">
+  {% if tags %}
+    <ul class="inline">
+      {% for tag in tags %}
+      <li><a href="{% url blog_tag_detail tag %}">{{ tag }}</a></li>
+      {% endfor %}
+    </ul>
+  {% endif %}
+  </div>
+  <hr style="visibility: hidden;" />
+</div>

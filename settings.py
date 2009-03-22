@@ -31,10 +31,6 @@ SITE_ID = 1
 # to load the internationalization machinery.
 USE_I18N = False
 
-# Absolute path to the directory that holds media.
-# Example: "/home/media/media.lawrence.com/"
-MEDIA_ROOT = os.path.realpath(os.path.join(PROJECT_ROOT, "static"))
-
 # URL that handles the media served from MEDIA_ROOT. Make sure to use a
 # trailing slash if there is a path component (optional in other cases).
 # Examples: "http://media.lawrence.com", "http://example.com/media/"
@@ -45,6 +41,8 @@ MEDIA_URL = "/static/"
 # Examples: "http://foo.com/media/", "/media/".
 ADMIN_MEDIA_PREFIX = "/media/"
 
+AUTH_PROFILE_MODULE = 'authors.userprofile'
+
 # List of callables that know how to import templates from various sources.
 TEMPLATE_LOADERS = (
     "django.template.loaders.filesystem.load_template_source",
@@ -54,6 +52,7 @@ TEMPLATE_LOADERS = (
 TEMPLATE_CONTEXT_PROCESSORS = (
     "django.core.context_processors.auth",
     "django.core.context_processors.debug",
+    "django.core.context_processors.request",
     "django.core.context_processors.i18n",
     "django.core.context_processors.media",
 )
@@ -63,24 +62,37 @@ MIDDLEWARE_CLASSES = (
     "django.contrib.sessions.middleware.SessionMiddleware",
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.middleware.doc.XViewMiddleware",
+
+    "authors.middleware.AuthorMiddleware",
 )
 
 ROOT_URLCONF = "oebfare.urls"
 
+THEME = "oebfare"
+
+THEME_DIR = os.path.join(PROJECT_ROOT, "themes", THEME)
+
 TEMPLATE_DIRS = (
-    os.path.join(PROJECT_ROOT, "templates"),
+    #os.path.join(PROJECT_ROOT, "templates"),
+    os.path.join(PROJECT_ROOT, "themes", THEME, "templates"),
 )
+
+# Absolute path to the directory that holds media.
+# Example: "/home/media/media.lawrence.com/"
+MEDIA_ROOT = os.path.realpath(os.path.join(THEME_DIR, "static"))
 
 INSTALLED_APPS = (
    "blog",
    "links",
    "aggregator",
    "wsgi",
+   "authors",
    
    "tagging",
    "mailer",
    "comment_utils",
    "gravatar",
+   "elsewhere",
    
    "django.contrib.admin",
    "django.contrib.auth",

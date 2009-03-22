@@ -1,7 +1,6 @@
 
-oebfare is the source code that runs my blog at http://oebfare.com. I felt it
-would be good to release the source code freely so others can learn more
-about Django.
+oebfare is the source code that runs the blog at http://oebfare.com. The code
+is freely available for you to use however you want.
 
 License
 -------
@@ -16,30 +15,65 @@ Dependancies
  * pygments
  * django-comment-utils (http://github.com/jezdez/django-comment-utils/tree/master)
  * django-tagging
+ * django-mailer
+ * django-gravatar
+ * django-elsewhere
 
-Future users
-------------
+Checking out the source
+-----------------------
 
-Since this code is publically available I encourage people to actually use it. 
-With that said, it would be a good idea to provide some nice details about
-how to use it.
-
-You likely already cloned it from GitHub. If not here is how you might do
-that::
+The source code for oebfare is hosted on GitHub. To clone the code run::
 
     git clone git://github.com/brosner/oebfare.git
 
-If for any reason GitHub is down or inaccesible to you I have mirrored the
-repository and can be cloned like::
+There is a mirror of the source code available at oebfare itself:
 
     git clone git://oebfare.com/oebfare.git
 
-You are now all set with the source code.
+You're all set!
 
-To get it running you will need to ensure you have the dependencies fulfilled.
-I am going to assume that is already done. You are now going to want to make
-a ``local_settings.py`` file where you can add in your own settings. The most
-common settings that get set here are:
+Installing
+----------
+
+To get yourself up and running with oebfare you have two options. Install the
+dependancies (listed above) manually or grab pip. The preferred way of setting
+things up is to work with pip and virtualenv. For the former, you are on your
+own. If you don't have pip or virtualenv here is a quick setup guide::
+
+    sudo easy_install pip
+    sudo pip install virtualenv
+
+You don't have to use ``sudo``, but I did to show you it really should be
+installed globally. The last thing I *highly* recommend is using Doug Hellman's
+virtualenvwrapper::
+
+    sudo pip install virtualenvwrapper
+
+Head to http://pypi.python.org/pypi/virtualenvwrapper/ and read the quick
+setup to get virtualenvwrapper going for yourself. I will assume that is done
+correctly.
+
+Set up yourself a virtualenv for working with the oebfare code (you can use
+any env name below)::
+
+    mkvirtualenv oebfare
+    easy_install pip
+
+Now you are ready to install the dependancies using pip. Make sure you in the
+root of the oebfare source tree::
+
+    pip install -r requirements.txt
+
+You are all set!
+
+Configuration
+-------------
+
+All settings should be provided in a ``local_settings.py`` file. This file is
+imported by ``settings.py`` to override any already defined settings. The only
+disadvantage to this method is you don't have access to the original values
+to append or modify in place (this shouldn't be a big deal). The most common
+settings you should likely need to configure are:
 
  * ``LOCAL_DEVELOPMENT``
  * ``DEBUG``
@@ -58,23 +92,22 @@ common settings that get set here are:
  * ``MEDIA_ROOT``
  * ``MEDIA_URL``
 
-This is by no means a complete list. This were the ones I have needed to
-configure myself. You will have to setup your database settings so be sure
-to set those up as they are required.
+This is by no means a complete list. The most important settings are going
+to be the database settings. Make sure you set them correctly.
 
-I have a special setting named ``LOCAL_DEVELOPMENT`` that is used to control
-whether media in ``MEDIA_ROOT`` is served up at ``MEDIA_URL`` by default when
-running ``runserver``. This is handy for testing, but please do not use it
-in production. The setting name should defer that I hope.
+Notice the ``LOCAL_DEVELOPMENT`` settings. This setting is used to control
+whether the media in ``MEDIA_ROOT`` is served up at ``MEDIA_URL`` by default
+when running ``runserver``. This is handy for testing, but please do not use it
+in production. The setting name should hopefully defer that.
 
-Once you have your database settings all set you can now::
+Once you have your database settings configured go ahead and syncdb::
 
-    ./manage.py syncdb
+    python manage.py syncdb
 
-Then::
+And finally you can run the development server::
 
-    ./manage.py runserver
+    python manage.py runserver
 
-The blog is going to look exactly like mine, but the idea is that you can
-change whatever you want or ignore everything I said an copy out the apps you
-want in your project.
+Point your browser at http://localhost:8000/. The blog is going to look
+remarkably like the one at http://oebfare.com/. Welcome to the oebfare world!
+

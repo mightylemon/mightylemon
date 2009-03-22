@@ -1,0 +1,113 @@
+@import url("/static/css/960.css");
+@import url("/static/css/pygments.css");
+
+/* GLOBAL */
+* { font-family: Helvetica, Arial, sans-serif; }
+ul.inline { list-style-type: none; }
+ul.inline li { display: inline; }
+li, p { font-size: .8em; line-height: 1.6em; color: #ccc;}
+h3 { color: #666; }
+li ul li { font-size: 1em; }
+a img { border: 0px; }
+dt, dd { padding: 5px; }
+
+    /* COLORS */
+    body { background-color: #202020; color: white;  }
+    a { color: white; text-decoration: none; }
+    a:hover { color: #fff22d; }
+    li a, p a { color: #fff22d; }
+    li a:hover, p a:hover { color: #ccc00a; }
+
+/* MASTHEAD */
+div#masthead { text-align: center; }
+div#masthead h1 { background: url('/static/images/logo.png') no-repeat center center; height: 150px; }
+div#masthead h1 span  { visibility: hidden; }
+ul#main-nav { font-size: 1.4em; }
+ul#main-nav li { padding: 0px 25px; }
+ul#main-nav li a { color: white; text-decoration: none; }
+ul#main-nav li a:hover { color: #fff22d; }
+
+/* CONTENT */
+div.line_item {
+    width: 100%;
+}
+div.line_item img { 
+    line-height: 1.8em;
+}
+div.line_item > * {
+    display: inline;
+    float: left;
+}
+div.line_item p {
+    padding-left: 10px;
+    line-height: 1.2em;
+    font-size: 1em;
+    margin: 2px 0;
+}
+div.line_item h2 {
+    padding-left: 10px;
+    line-height: 1.6em;
+    font-size: 1.6em;
+    margin: 0;
+    display: inline;
+}
+
+div.content_bits {
+    width: 450px;
+    float: left;
+}
+div.more_bits {
+    width: 300px;
+}
+div.line_item h6 {
+    margin: 0;
+    text-align: right;
+}
+div.line_item h3 {
+    font-size: 1.4em;
+    color: #999;
+    display: inline;
+}
+div.line_item ul {
+    margin: 0;
+    text-align: right;
+}
+div.line_item ul li {
+    margin: 0;
+    font-size: 1em;
+    line-height: 1.6em;
+}
+hr {
+    clear: both;
+    width: 100%;
+    background: white;
+    border: none;
+    height: 1px;
+    margin-top: 0;
+}
+div#content h1 { 
+    border-bottom: 1px solid white;
+    clear: both; 
+    padding-top: 25px;
+}
+
+div#article_contents p {
+    font-size: 1em;
+    font-weight: normal;
+}
+
+div.entry li {
+    font-size: 1em;
+}
+div.form-line {
+    margin-bottom: 10px;
+    padding-left: 25px;
+}
+div.error {
+    background: #333;
+    padding: 10px 0 15px 25px;
+}
+
+/* Stylings for tag cloud */
+ul.tag_cloud { list-style: none; }
+ul.tag_cloud li { display: inline; padding: .4em; }

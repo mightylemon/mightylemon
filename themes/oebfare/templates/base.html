@@ -1,4 +1,5 @@
 {% load i18n %}
+{% load gravatar_tags %}
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
@@ -45,23 +46,27 @@
                             {% block sr %}
                             <h2>About Me</h2>
                             <p>
-                                <img src="http://www.gravatar.com/avatar.php?size=50&amp;gravatar_id=b7472bc7aa45c70641c299e9408b78ab" alt="gravatar for brosner" align="left" style="padding: 5px;" />
-                                My name is Brian Rosner. I am a 22-year old web
-                                developer. I am currently employed at <a href="http://www.churchpartner.com/">ChurchPartner</a>.
-                                I am a Django core developer. I enjoy coding in
-                                <a href="http://python.org/">Python</a>, C, <a href="http://www.erlang.org/">Erlang</a>, HTML, CSS and Javascript.
-                                <a href="/about/">More ...</a>
+                                <img src="{% gravatar_for_email request.author.email 50 %}" alt="gravatar for {{ request.author.get_profile.nickname }}" align="left" style="padding: 5px;" />
+                                <p>{{ request.author.get_profile.about_me|safe }} <a href="/about/">More ...</a></p>
                             </p>
                 
-                            <h2>Elsewhere</h2>
-                            <ul>
-                                <li><a href="http://twitter.com/brosner" rel="me">Twitter</a></li>
-                                <li><a href="http://digg.com/users/brosner" rel="me">Digg</a></li>
-                                <li><a href="http://github.com/brosner" rel="me">GitHub</a></li>
-                                <li><a href="http://wakoopa.com/brosner" rel="me">Wakoopa</a></li>
-                                <li><a href="http://www.last.fm/user/brosner/" rel="me">Last.fm</a></li>
-                                <li><a href="http://flickr.com/photos/brosner" rel="me">Flickr</a></li>
-                                <li><a href="http://djangopeople.net/brosner/" rel="me">DjangoPeople</a></li>
+                            <h2 style="clear:both;">Elsewhere</h2>
+                            <ul class="elsewhere">
+                                {% for profile in request.author.social_network_profiles.all %}
+                                    <li>
+                                        <a href="{{ profile.url }}" rel="me">{{ profile.name }}</a>
+                                    </li>
+                                {% endfor %}
+                                {% for profile in request.author.instant_messenger_profiles.all %}
+                                    <li>
+                                        {{ profile.name }}: <a href="{{ profile.url }}" rel="me">{{ profile.username }}</a>
+                                    </li>
+                                {% endfor %}
+                                {% for profile in request.author.website_profiles.all %}
+                                    <li>
+                                        <a href="{{ profile.url }}" rel="me">{{ profile.name }}</a>
+                                    </li>
+                                {% endfor %}
                             </ul>
                             {% endblock %}
                         </div>
@@ -113,7 +118,7 @@
         </div>
         {% endblock %}
         <div id="ft">
-            &copy; 2007 - 2008 Brian Rosner
+            &copy; 2007 - 2008 {{ request.author.get_profile.full_name }}
         </div>
     </div>
 </body>
