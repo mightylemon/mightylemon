@@ -7,16 +7,16 @@ from django.shortcuts import render_to_response
 def privileged_post_queryset(view_func):
     def _wrapped_view(request, **kwargs):
         if request.user.is_authenticated():
-            kwargs["queryset"] = Post.objects.all()
+            kwargs["queryset"] = request.blog.posts.all()
         else:
-            kwargs["queryset"] = Post.objects.active()
+            kwargs["queryset"] = request.blog.posts.active()
         return view_func(request, **kwargs)
     return _wrapped_view
 
 def homepage(request, **kwargs):
     defaults = {
         "date_field": "pub_date",
-        "num_latest": 3,
+        "num_latest": request.blog.settings.posts_per_page,
         "template_name": "homepage.html",
         "template_object_name": "posts",
     }

@@ -5,8 +5,8 @@
 <head>
 
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-  <title>ones zeros majors and minors</title>
-  <meta name="description" content="ones zeros majors and minors: esoteric adventures in solipsism, by {{ request.author.full_name }}" />
+  <title>{{ blog.title }}</title>
+  <meta name="description" content="{{ blog.title }}: esoteric adventures in solipsism, by {{ blog.author.full_name }}" />
   <meta name="keywords" content="ruby, rails, music, javascript, hacking, guitar" />
   
   <link href="{{ MEDIA_URL }}/css/main.css" rel="stylesheet" type="text/css" media="screen, projection" />
@@ -25,7 +25,7 @@
   <div id="wrap">
 
     <div id="header">
-      <a href="/">ones zeros majors and minors</a>
+      <a href="/">{{ blog.title }}</a>
     </div>
   
     <div id="main">
@@ -34,8 +34,8 @@
     </div>
 
     <div id="sidebar">
-      <h3><a href="mailto:{{ request.author.email }}">{{ request.author.email }}</a></h3>
-      <p>{{ request.author.get_profile.about_me|safe }}</p>
+      <h3><a href="mailto:{{ blog.author.email }}">{{ blog.author.email }}</a></h3>
+      <p>{{ blog.author.get_profile.about_me|safe }}</p>
 
       <h3>meta</h3>
       <ul>
@@ -74,7 +74,7 @@
         <a href="{% url blog_archive_full %}">Visit the Archive</a>
       </div>
 
-      (( copyright two thousand eight {{ request.author.get_profile.full_name }} ))
+      (( copyright two thousand eight {{ blog.author.get_profile.full_name }} ))
     </div>
   </div>
 </body>

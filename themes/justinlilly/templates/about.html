@@ -23,7 +23,7 @@ rocks. Seriously.</p>
 <h1>Meta</h1>
 <h2>Contact</h2>
 <ul id="contact_list">
-{% for profile in request.author.instant_messenger_profiles.all %}
+{% for profile in blog.author.instant_messenger_profiles.all %}
     <li>
         {{ profile.name }}: <a href="{{ profile.url }}" rel="me">{{ profile.username }}</a>
     </li>
@@ -31,7 +31,7 @@ rocks. Seriously.</p>
 </ul>
 <h2>Social Networks</h2>
 <ul id="social_network_list">
-{% for profile in request.author.social_network_profiles.all %}
+{% for profile in blog.author.social_network_profiles.all %}
     <li>
         <a href="{{ profile.url }}" rel="me">{{ profile.name }}</a>
     </li>
