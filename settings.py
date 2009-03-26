@@ -55,6 +55,8 @@ TEMPLATE_CONTEXT_PROCESSORS = (
     "django.core.context_processors.request",
     "django.core.context_processors.i18n",
     "django.core.context_processors.media",
+
+    "blog.context_processors.blog",
 )
 
 MIDDLEWARE_CLASSES = (
@@ -63,7 +65,7 @@ MIDDLEWARE_CLASSES = (
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.middleware.doc.XViewMiddleware",
 
-    "authors.middleware.AuthorMiddleware",
+    "blog.middleware.BlogMiddleware",
 )
 
 ROOT_URLCONF = "oebfare.urls"
@@ -92,7 +94,8 @@ INSTALLED_APPS = (
    "mailer",
    "comment_utils",
    "gravatar",
-   "elsewhere",
+
+   "plugins.django-elsewhere.elsewhere",
    
    "django.contrib.admin",
    "django.contrib.auth",

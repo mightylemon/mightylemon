@@ -1,0 +1,3 @@
+[submodule "plugins/django-elsewhere"]
+	path = plugins/django-elsewhere
+	url = git://github.com/leah/django-elsewhere.git
