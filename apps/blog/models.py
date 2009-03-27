@@ -38,6 +38,9 @@ class BlogSettings(models.Model):
     blog = models.ForeignKey(Blog)
     posts_per_page = models.PositiveIntegerField(_("posts per page"), default=6)
 
+    class Meta:
+        verbose_name_plural = 'Blog Settings'
+
     def __unicode__(self):
         return "%s settings" % self.blog.title
 
