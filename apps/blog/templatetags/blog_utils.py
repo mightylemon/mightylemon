@@ -7,6 +7,8 @@ from docutils.writers import html4css1
 from docutils.core import publish_parts
 from docutils.parsers.rst import directives
 
+from markdown import markdown
+
 from pygments import highlight
 from pygments.formatters import HtmlFormatter
 from pygments.lexers import get_lexer_by_name, TextLexer
@@ -48,13 +50,21 @@ def rst_to_html(value):
     parts = publish_parts(source=value, writer=HTMLWriter(),
         settings_overrides={"initial_header_level": 2})
     return parts["fragment"]
-    
+
+def markdown_to_html(text):
+    """
+    This seems a bit verbose for no reason, but its to maintain
+    consistency in implementation.
+    """
+    return markdown(text)
 
 def to_html(obj):
     if obj.markup_type == "html":
         html = obj.body
     elif obj.markup_type == "rst":
         html = rst_to_html(obj.body)
+    elif obj.markup_type == "markdown":
+        html = markdown_to_html(obj.body)
     return mark_safe(html)
 register.filter("to_html", to_html)
 

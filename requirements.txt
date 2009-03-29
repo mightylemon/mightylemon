@@ -2,6 +2,8 @@ Django==1.0.2-final
 Pygments==1.0
 docutils==0.5
 
+markdown
+
 # TODO: move to released versions.
 http://django-tagging.googlecode.com/svn/trunk/
 -e svn+http://django-mailer.googlecode.com/svn/trunk/#egg=django-mailer

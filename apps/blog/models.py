@@ -58,6 +58,7 @@ class Post(models.Model):
     markup_type = models.CharField(max_length=10, choices=(
         ("html", "HTML"),
         ("rst", "reStructuredText"),
+        ("markdown", "Markdown"),
     ), default="html")
     active = models.BooleanField(default=False)
     create_date = models.DateTimeField(_("created"), default=datetime.now)
