@@ -54,6 +54,7 @@ def rst_to_html(value):
 
 #markdown -> HTML with code hiliting
 
+#create a constant Markdown object to avoid instantiating and re-configuring for every code block
 MD_HILITE_EXT = makeExtension()    
 MARKDOWN = markdown.Markdown()
 MD_HILITE_EXT.extendMarkdown(MARKDOWN)
