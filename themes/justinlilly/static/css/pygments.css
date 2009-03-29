@@ -2,7 +2,7 @@ div.highlight { background: #333; padding: 10px; margin-bottom: 5px;}
 td.linenos { background-color: #f0f0f0; padding-right: 10px; }
 span.lineno { background-color: #f0f0f0; padding: 0 5px 0 5px; }
 pre { line-height: 125%; }
-pre * { font-family: Monaco, Courier, fixed-width; font-size: 9pt;}
+pre *, code { font-family: Monaco, Courier, fixed-width; font-size: 9pt;}
 body .c { color: black; font-style: italic } /* Comment */
 body .err { border: 1px solid #FF0000 } /* Error */
 body .k { color: #999900; font-weight: bold } /* Keyword */
