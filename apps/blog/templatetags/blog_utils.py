@@ -1,6 +1,5 @@
 
 from django.template import Library
-from django.utils.safestring import mark_safe
 from blog.util.code_hilite import to_html
 
 register = Library()
