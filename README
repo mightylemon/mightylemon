@@ -26,10 +26,6 @@ The source code for oebfare is hosted on GitHub. To clone the code run::
 
     git clone git://github.com/brosner/oebfare.git
 
-There is a mirror of the source code available at oebfare itself:
-
-    git clone git://oebfare.com/oebfare.git
-
 You're all set!
 
 Installing
