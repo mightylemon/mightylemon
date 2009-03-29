@@ -35,5 +35,10 @@
       </div>
         
       </div>
+    {% if STATS_CODE %}
+    {% autoescape off %}
+    {{ STATS_CODE }}
+    {% endautoescape %}
+    {% endif %}
   </body>
 </html>
