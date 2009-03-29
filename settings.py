@@ -95,7 +95,7 @@ INSTALLED_APPS = (
    "comment_utils",
    "gravatar",
 
-   "plugins.django-elsewhere.elsewhere",
+   "elsewhere",
    
    "django.contrib.admin",
    "django.contrib.auth",
