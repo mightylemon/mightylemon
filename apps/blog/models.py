@@ -13,9 +13,6 @@ from tagging.fields import TagField
 from mailer import send_mail
 from comment_utils.moderation import CommentModerator, moderator
 
-from blog.templatetags.blog_utils import rst_to_html
-
-
 class Blog(models.Model):
     title = models.CharField(_("title"), max_length=100)
     author = models.ForeignKey(User, related_name=_("author"))
