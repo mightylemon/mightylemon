@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div id="article_contents" class="grid_10 prefix_1 alpha">
+  {% block sl %}{% endblock %}
+</div>
+<div id="sr" class="yui-u">
+  <div class="grid_4 suffix_1 omega">
+    {% block sr %}
+    {% endblock %}
+  </div>
+</div>
+{% endblock %}
