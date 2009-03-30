@@ -1,0 +1,147 @@
+
+html {
+    background-color: #374140;
+}
+
+body {
+    font-family: Georgia, Times, sans-serif;
+    background-color: #374140;
+    color: #ebe0d1;
+}
+
+body,h1,h2,h3,h4,h5,h6,p,ul,ol,dl,input,textarea {
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+
+a {
+    color: #CDE9E9;
+    text-decoration: none;
+}
+a:hover {
+    text-decoration: underline;
+}
+
+#hd {
+    border-bottom: 3px solid #637978;
+    height: 70px;
+}
+
+#sl > div, #sm > div, #sr > div {
+    padding: 0 10px;
+}
+#sr, #sm {
+    background-color: #637978;
+}
+
+#ft {
+    border-top: 3px solid #637978;
+    /*font-size: .9em;*/
+    padding: 5px 0;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    /* font-family: "Lucida Grande", "Bitstream Vera Sans", Verdana, sans-serif; */
+    text-shadow: #a9a9a9 0 0 1px;
+}
+
+h1 {
+    color: #8FACAB;
+}
+
+h2 {
+    color: #CDE9E9;
+}
+
+p, li, dt, dl, blockquote {
+    font-size: 13px;
+    line-height: 1.7em;
+}
+
+blockquote, pre {
+    border-left: 5px solid #637978;
+    padding-left: 15px;
+}
+
+hr {
+    background: #637978; 
+    color: #637978;
+    clear: both; 
+    float: none; 
+    width: 100%; 
+    height: .2em;
+    margin: 0 0 1.4em;
+    border: none;
+}
+
+.small {
+    font-size: .9em;
+}
+
+.entry, .entry-brief {
+    clear: both;
+}
+.entry-brief {
+    border-bottom: 2px solid #637978;
+}
+.entry-last {
+    border-bottom: none;
+}
+.entry-brief h2 {
+}
+.entry-brief div.published {
+    position: relative;
+    top: -11px;
+}
+.entry p, .entry-brief p {
+    /*font-size: 1em;*/
+}
+
+.comment > div {
+    padding: 0 10px;
+}
+
+.comment .even {
+    background: #637978;
+}
+
+div.tags {
+    clear: both;
+}
+div.tags ul {
+    margin-left: 0;
+    clear: left;
+    height: 24px;
+}
+div.tags ul li {
+    list-style-type: none;
+    background-color: #8FACAB;
+    float: left;
+    padding: 3px;
+    margin-right: 5px;
+}
+.entry div.tags ul li, .entry-brief div.tags ul li {
+    background-color: #637978;
+}
+div.tags ul li.normal {
+    background: none;
+}
+div.tags li a {
+    display: block;
+}
+
+pre, code {
+    /*font: normal 11px "bitstream vera sans mono", monaco, "lucida console", "courier new", courier, serif;*/
+    font-family: monospace;
+    font-size: 12px;
+    line-height: 14px;
+}
+code {
+    /* background: #637978; */
+    /* color: #374140; */
+    font-size: 13px;
+    padding: 1px 2px;
+}
+
+textarea {
+    width: 100%;
+}
