@@ -1,0 +1,18 @@
+{% load comments %}
+<form action="{% comment_form_target %}" method="POST">
+  {% for field in form %}
+    {% if field.is_hidden %}
+      {{ field }}
+    {% else %}
+      <p
+        {% if field.errors %} class="error"{% endif %}
+        {% ifequal field.name "honeypot" %} style="display:none;"{% endifequal %}>
+        {% if field.errors %}{{ field.errors }}{% endif %}
+        {{ field.label_tag }}<br />{{ field }}
+      </p>
+    {% endif %}
+  {% endfor %}
+  <p class="submit">
+    <input type="submit" name="preview" class="submit-preview" value="Preview comment" />
+  </p>
+</form>

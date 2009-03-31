@@ -115,8 +115,3 @@ div.error {
 /* Stylings for tag cloud */
 ul.tag_cloud { list-style: none; }
 ul.tag_cloud li { display: inline; padding: .4em; }
-
-/* FOOTER */
-#footer h3 { border-bottom: 2px solid #333; }
-#footer-nav { font-size: 1.2em; margin-left: 0; padding-left: 0; }
-#footer-nav li { padding-left: 25px; }

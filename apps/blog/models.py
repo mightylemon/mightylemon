@@ -13,9 +13,6 @@ from tagging.fields import TagField
 from mailer import send_mail
 from comment_utils.moderation import CommentModerator, moderator
 
-from blog.templatetags.blog_utils import rst_to_html
-
-
 class Blog(models.Model):
     title = models.CharField(_("title"), max_length=100)
     author = models.ForeignKey(User, related_name=_("author"))
@@ -38,6 +35,9 @@ class BlogSettings(models.Model):
     blog = models.ForeignKey(Blog)
     posts_per_page = models.PositiveIntegerField(_("posts per page"), default=6)
 
+    class Meta:
+        verbose_name_plural = 'Blog Settings'
+
     def __unicode__(self):
         return "%s settings" % self.blog.title
 
@@ -55,6 +55,7 @@ class Post(models.Model):
     markup_type = models.CharField(max_length=10, choices=(
         ("html", "HTML"),
         ("rst", "reStructuredText"),
+        ("markdown", "Markdown"),
     ), default="html")
     active = models.BooleanField(default=False)
     create_date = models.DateTimeField(_("created"), default=datetime.now)

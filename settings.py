@@ -57,6 +57,7 @@ TEMPLATE_CONTEXT_PROCESSORS = (
     "django.core.context_processors.media",
 
     "blog.context_processors.blog",
+    "blog.context_processors.stats",
 )
 
 MIDDLEWARE_CLASSES = (
@@ -83,6 +84,8 @@ TEMPLATE_DIRS = (
 # Example: "/home/media/media.lawrence.com/"
 MEDIA_ROOT = os.path.realpath(os.path.join(THEME_DIR, "static"))
 
+STATS_CODE = ""  # contains stats tracking code
+
 INSTALLED_APPS = (
    "blog",
    "links",
@@ -95,7 +98,7 @@ INSTALLED_APPS = (
    "comment_utils",
    "gravatar",
 
-   "plugins.django-elsewhere.elsewhere",
+   "elsewhere",
    
    "django.contrib.admin",
    "django.contrib.auth",

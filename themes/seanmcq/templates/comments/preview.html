@@ -1,0 +1,38 @@
+{% extends "base_2col.html" %}
+
+{% block title %}Preview Your Comment | {{ block.super }}{% endblock %}
+
+{% block sl %}
+{% load comments %}
+<form action="{% comment_form_target %}" method="POST">
+  {% if form.errors %}
+    <h1>Please correct the error{{ form.errors|pluralize }} below</h1>
+  {% else %}
+    <h1>Preview your comment</h1>
+    <blockquote>
+        {{ comment|urlizetrunc:"40"|linebreaks }}
+    </blockquote>
+    <p>
+      and <input type="submit" name="submit" value="Post your comment" id="submit"> or make changes:
+    </p>
+  {% endif %}
+  {% for field in form %}
+    {% if field.is_hidden %}
+      {{ field }}
+    {% else %}
+      <div {% spaceless %}
+        class="form-line{% if field.errors %} error{% endif %}"
+        {% ifequal field.name "honeypot" %} style="display: none;"{% endifequal %}{% endspaceless %}>
+        {% if field.errors %}{{ field.errors }}{% endif %}
+        {{ field.label_tag }}<br />{{ field }}
+      </div>
+    {% endif %}
+  {% endfor %}
+  <p class="submit">
+    <input type="submit" name="preview" class="submit-preview" value="Preview comment again">
+  </p>
+</form>
+{% endblock %}
+
+{% block sr %}
+{% endblock %}
