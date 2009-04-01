@@ -35,8 +35,7 @@ urlpatterns = patterns("",
         archive_month, date_based_dict, name="blog_archive_month"),
     url(r"^(?P<year>\d{4})/$",
         archive_year, date_based_dict, name="blog_archive_year"),
-    url(r"^$",
-        archive_index, date_based_dict, name="blog_archive_index"),
+    url(r"^$", archive_index, date_based_dict, name="blog_archive_index"),
 
     url(r"^archive/$", archive_full, name="blog_archive_full"),
 )
