@@ -60,6 +60,7 @@ class Post(models.Model):
     active = models.BooleanField(default=False)
     create_date = models.DateTimeField(_("created"), default=datetime.now)
     pub_date = models.DateTimeField(_("published"), default=datetime.now)
+    enable_comments = models.BooleanField(default=True)
     tags = TagField()
     
     objects = PostManager()
@@ -85,6 +86,7 @@ class Post(models.Model):
 class PostModerator(CommentModerator):
     akismet = True
     email_notification = True
+    enable_field = "enable_comments"
     
     def email(self, comment, content_object):
         """
