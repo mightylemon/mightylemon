@@ -2,11 +2,12 @@ Django==1.0.2-final
 Pygments==1.0
 docutils==0.5
 
+django-mailer
+django-gravatar
 markdown
+pygments
 
 # TODO: move to released versions.
--e svn+http://django-tagging.googlecode.com/svn/trunk/#egg=django-tagging
--e svn+http://django-mailer.googlecode.com/svn/trunk/#egg=django-mailer
--e svn+http://django-gravatar.googlecode.com/svn/trunk/#egg=django-gravatar
+http://django-tagging.googlecode.com/svn/trunk/
 -e git+git://github.com/jezdez/django-comment-utils.git#egg=django-comment-utils
 -e git+git://github.com/leah/django-elsewhere.git#egg=django-elsewhere
