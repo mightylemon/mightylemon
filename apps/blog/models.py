@@ -60,6 +60,7 @@ class Post(models.Model):
     active = models.BooleanField(default=False)
     create_date = models.DateTimeField(_("created"), default=datetime.now)
     pub_date = models.DateTimeField(_("published"), default=datetime.now)
+    enable_comments = models.BooleanField(default=True)
     tags = TagField()
     
     objects = PostManager()
@@ -85,12 +86,13 @@ class Post(models.Model):
 class PostModerator(CommentModerator):
     akismet = True
     email_notification = True
+    enable_field = "enable_comments"
     
     def email(self, comment, content_object):
         """
         Use django-mailer for mail delivery.
         """
-        if not self.email_notification and not comment.is_public:
+        if self.email_notification and not comment.is_public:
             return
         recipient_list = [manager_tuple[1] for manager_tuple in settings.MANAGERS]
         t = loader.get_template("comment_utils/comment_notification_email.txt")
