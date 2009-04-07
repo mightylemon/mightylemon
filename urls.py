@@ -6,7 +6,7 @@ from django.contrib import admin
 admin.autodiscover()
 
 # override the default handler500 so i can pass MEDIA_URL
-handler500 = "oebfare.views.server_error"
+handler500 = "mightylemon.views.server_error"
 
 urlpatterns = patterns("",
     url(r"^about/$", "django.views.generic.simple.direct_to_template", {
