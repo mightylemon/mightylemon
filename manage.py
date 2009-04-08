@@ -18,6 +18,10 @@ except ImportError, e:
 # setup the environment before we start accessing things in the settings.
 setup_environ(settings_mod)
 
+if settings.APP_ENGINE:
+    from appengine_django import InstallAppengineHelperForDjango
+    InstallAppengineHelperForDjango()
+
 sys.path.insert(0, join(settings.PROJECT_ROOT, "apps"))
 
 if __name__ == "__main__":

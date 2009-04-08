@@ -1,8 +1,8 @@
-
 import os
 
 PROJECT_ROOT = os.path.dirname(__file__)
 
+APP_ENGINE = True
 LOCAL_DEVELOPMENT = False
 
 DEBUG = False
@@ -60,15 +60,6 @@ TEMPLATE_CONTEXT_PROCESSORS = (
     "blog.context_processors.stats",
 )
 
-MIDDLEWARE_CLASSES = (
-    "django.middleware.common.CommonMiddleware",
-    "django.contrib.sessions.middleware.SessionMiddleware",
-    "django.contrib.auth.middleware.AuthenticationMiddleware",
-    "django.middleware.doc.XViewMiddleware",
-
-    "blog.middleware.BlogMiddleware",
-)
-
 ROOT_URLCONF = "mightylemon.urls"
 
 THEME = "oebfare"
@@ -86,27 +77,52 @@ MEDIA_ROOT = os.path.realpath(os.path.join(THEME_DIR, "static"))
 
 STATS_CODE = ""  # contains stats tracking code
 
-INSTALLED_APPS = (
-   "blog",
-   "links",
-   "aggregator",
-   "wsgi",
-   "authors",
-   
-   "tagging",
-   "mailer",
-   "comment_utils",
-   "gravatar",
+if APP_ENGINE:
+    MIDDLEWARE_CLASSES = (
+        "django.middleware.common.CommonMiddleware",
+        "django.contrib.sessions.middleware.SessionMiddleware",
+        "django.contrib.auth.middleware.AuthenticationMiddleware",
 
-   "elsewhere",
-   
-   "django.contrib.admin",
-   "django.contrib.auth",
-   "django.contrib.contenttypes",
-   "django.contrib.comments",
-   "django.contrib.sessions",
-   "django.contrib.sites",
-)
+        "blog.middleware.BlogMiddleware",
+    )
+
+    INSTALLED_APPS = (
+        "appengine_django",
+        "blog",
+
+        #"tagging",
+    )
+else:
+    MIDDLEWARE_CLASSES = (
+        "django.middleware.common.CommonMiddleware",
+        "django.contrib.sessions.middleware.SessionMiddleware",
+        "django.contrib.auth.middleware.AuthenticationMiddleware",
+        "django.middleware.doc.XViewMiddleware",
+
+        "blog.middleware.BlogMiddleware",
+    )
+
+    INSTALLED_APPS = (
+       "blog",
+       "links",
+       "aggregator",
+       "wsgi",
+       "authors",
+
+       "tagging",
+       "mailer",
+       "comment_utils",
+       "gravatar",
+
+       "elsewhere",
+
+       "django.contrib.admin",
+       "django.contrib.auth",
+       "django.contrib.contenttypes",
+       "django.contrib.comments",
+       "django.contrib.sessions",
+       "django.contrib.sites",
+    )
 
 try:
     from local_settings import *

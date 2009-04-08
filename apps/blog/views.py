@@ -3,17 +3,26 @@ from django.views.generic import date_based
 from blog.models import Post
 from django.template import RequestContext
 from django.shortcuts import render_to_response
+import settings
 
 def privileged_post_queryset(view_func):
     def _wrapped_view(request, **kwargs):
         if request.user.is_authenticated():
-            kwargs["queryset"] = request.blog.posts.all()
+            if settings.APP_ENGINE:
+                kwargs["queryset"] = request.blog.post_set
+            else:
+                kwargs["queryset"] = request.blog.posts.all()
         else:
-            kwargs["queryset"] = request.blog.posts.active()
+            if settings.APP_ENGINE:
+                ## TODO filter by active
+                kwargs["queryset"] = request.blog.post_set
+            else:
+                kwargs["queryset"] = request.blog.posts.active()
         return view_func(request, **kwargs)
     return _wrapped_view
 
 def homepage(request, **kwargs):
+    '''
     defaults = {
         "date_field": "pub_date",
         "num_latest": request.blog.settings.posts_per_page,
@@ -22,6 +31,10 @@ def homepage(request, **kwargs):
     }
     defaults.update(kwargs)
     return date_based.archive_index(request, **defaults)
+    '''
+    return render_to_response("homepage.html", {
+        'posts': kwargs["queryset"][:request.blog.settings.posts_per_page],
+    }, context_instance=RequestContext(request))
 homepage = privileged_post_queryset(homepage)
 
 object_detail = privileged_post_queryset(date_based.object_detail)
