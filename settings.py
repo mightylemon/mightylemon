@@ -60,7 +60,7 @@ TEMPLATE_CONTEXT_PROCESSORS = (
     "blog.context_processors.stats",
 )
 
-ROOT_URLCONF = "mightylemon.urls"
+ROOT_URLCONF = "urls" # no mightylemon for appengine
 
 THEME = "oebfare"
 
