@@ -60,6 +60,7 @@ class Post(models.Model):
     active = models.BooleanField(default=False)
     create_date = models.DateTimeField(_("created"), default=datetime.now)
     pub_date = models.DateTimeField(_("published"), default=datetime.now)
+    permalink = models.CharField(_("permalink"), max_length=50, blank=True, null=True)
     tags = TagField()
     
     objects = PostManager()
