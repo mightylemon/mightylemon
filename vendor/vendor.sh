@@ -26,5 +26,9 @@ do
   cd ..
 done
 
+# We need romans
+cd docutils-0.5/extras
+zip -g ../../../docutils.zip roman.py
+
 # Back to vendor
 cd ../
