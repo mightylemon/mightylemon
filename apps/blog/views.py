@@ -1,4 +1,5 @@
-
+from django import http
+from django.core.urlresolvers import reverse
 from django.views.generic import date_based
 from blog.models import Post
 from django.template import RequestContext
@@ -48,3 +49,22 @@ def archive_full(request, **kwargs):
         'posts': kwargs["queryset"], # all posts
     }, context_instance=RequestContext(request))
 archive_full = privileged_post_queryset(archive_full)
+
+def setup(request):
+    """Quick hack for creating the necessary stuff.
+
+    Eventually this should be a registration form.
+    """
+    from google.appengine.api import users
+    googleuser = users.get_current_user()
+    from appengine_django.auth.models import User
+    user = User(user=googleuser, username=googleuser.nickname(), email='example@example.com')
+    user.put()
+    from authors.models import UserProfile
+    profile = UserProfile(user=user)
+    profile.put()
+    from blog.models import Blog
+    blog = Blog(title="My Blog", author=user)
+    blog.put()
+    request.blog = blog
+    return http.HttpResponseRedirect(reverse("oebfare_home"))

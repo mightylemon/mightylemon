@@ -16,6 +16,8 @@ urlpatterns = patterns("",
     url(r"^comments/", include("django.contrib.comments.urls")),
     url(r"^links/", include("links.urls")),
     url(r"^$", "blog.views.homepage", name="oebfare_home"),
+    # callback for google login
+    url(r"^setup/", "blog.views.setup", name="setup"),
 )
 
 if settings.LOCAL_DEVELOPMENT:
