@@ -5,8 +5,8 @@ from django.utils.translation import ugettext_lazy as _
 import settings
 
 if settings.APP_ENGINE:
-    from google.appengine.ext import db
-    Model = db.Model
+    from appengine_django.models import db, BaseModel
+    Model = BaseModel
     from appengine_django.auth.models import User
 else:
     from django.db import models

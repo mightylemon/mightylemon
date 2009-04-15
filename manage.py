@@ -6,10 +6,12 @@ import sys
 from os.path import abspath, dirname, join
 from site import addsitedir
 
-sys.path.insert(0, abspath(join(dirname(__file__), "externals")))
-
 # TODO(termie): hackhackhack
 import settings
+
+sys.path.insert(0, abspath(join(dirname(__file__), "externals")))
+sys.path.insert(0, join(settings.PROJECT_ROOT, "apps"))
+
 if settings.APP_ENGINE:
     from appengine_django import InstallAppengineHelperForDjango
     InstallAppengineHelperForDjango()
@@ -36,8 +38,6 @@ except ImportError, e:
 
 # setup the environment before we start accessing things in the settings.
 setup_environ(settings_mod)
-
-sys.path.insert(0, join(settings.PROJECT_ROOT, "apps"))
 
 if __name__ == "__main__":
     execute_from_command_line()
