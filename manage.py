@@ -14,12 +14,16 @@ if settings.APP_ENGINE:
     from appengine_django import InstallAppengineHelperForDjango
     InstallAppengineHelperForDjango()
     
-    for x in os.listdir('.'):
+    for x in os.listdir('vendor'):
       if x.endswith('.zip'):
-        if x in sys.path:
+        path = 'vendor/%s' % x
+        if path in sys.path:
           continue
-        logging.debug("Adding %s to the sys.path", x)
-        sys.path.insert(1, x)
+        logging.debug("Adding %s to the sys.path", path)
+        sys.path.insert(1, path)
+
+import build
+build.monkey_patch_skipped_files()
 
 from django.conf import settings
 from django.core.management import setup_environ, execute_from_command_line

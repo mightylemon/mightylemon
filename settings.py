@@ -89,6 +89,19 @@ if APP_ENGINE:
     INSTALLED_APPS = (
         "appengine_django",
         "blog",
+       "blog",
+       "links",
+       "aggregator",
+       "wsgi",
+       "authors",
+       "django.contrib.admin",
+
+       "tagging",
+       #"mailer",
+       "comment_utils",
+       "gravatar",
+
+       "elsewhere",
 
         #"tagging",
     )
