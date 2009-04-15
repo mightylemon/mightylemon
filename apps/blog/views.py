@@ -58,7 +58,7 @@ def setup(request):
     from google.appengine.api import users
     googleuser = users.get_current_user()
     from appengine_django.auth.models import User
-    user = User(user=googleuser, username=googleuser.nickname(), email='example@example.com')
+    user = User(user=googleuser, username=googleuser.nickname(), email=googleuser.email())
     user.put()
     from authors.models import UserProfile
     profile = UserProfile(user=user)
