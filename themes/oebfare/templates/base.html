@@ -75,6 +75,7 @@
                         <div>
                             {% block sm %}
                             <div>
+                                {% comment %}
                                 <h2>{% trans "Hyperlinks" %} <a href="http://feeds.feedburner.com/oebfare-latest-links"><img src="{{ MEDIA_URL }}images/feed-icon-14x14.png" alt="oebfare: Latest Links" /></a></h2>
                                 {% load link_tags %}
                                 {% get_links as links limit 5 %}
@@ -85,8 +86,10 @@
                                 {% else %}
                                 <p>{% trans "No links." %}</p>
                                 {% endif %}
+                                {% endcomment %}
                             </div>
                             <div class="clearfix">
+                                {% comment %}
                                 <h2>{% trans "Tags" %}</h2>
                                 {% load tagging_tags %}
                                 {% tags_for_model blog.Post as post_tags %}
@@ -101,6 +104,7 @@
                                 {% else %}
                                 <p>{% trans "No tags." %}</p>
                                 {% endif %}
+                                {% endcomment %}
                             </div>
                             <div>
                                 <h2>{% trans "Archive" %}</h2>
