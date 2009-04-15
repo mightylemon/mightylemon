@@ -30,6 +30,13 @@ from appengine_django import have_django_zip
 from appengine_django import django_zip_path
 InstallAppengineHelperForDjango()
 
+for x in os.listdir('.'):
+  if x.endswith('.zip'):
+    if x in sys.path:
+      continue
+    logging.debug("Adding %s to the sys.path", x)
+    sys.path.insert(1, x)
+
 # Google App Engine imports.
 from google.appengine.ext.webapp import util
 
