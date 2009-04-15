@@ -73,7 +73,7 @@ if not settings.APP_ENGINE:
             return self.filter(active=True)
         
 
-class Post(models.Model):
+class Post(Model):
     if settings.APP_ENGINE:
         blog = db.ReferenceProperty(Blog)
     else:

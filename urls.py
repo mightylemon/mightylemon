@@ -3,7 +3,7 @@ from django.conf.urls.defaults import *
 
 
 # override the default handler500 so i can pass MEDIA_URL
-handler500 = "mightylemon.views.server_error"
+handler500 = "views.server_error"
 
 urlpatterns = patterns("",
     url(r"^about/$", "django.views.generic.simple.direct_to_template", {
