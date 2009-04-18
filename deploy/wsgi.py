@@ -14,13 +14,13 @@ def setup_environ(settings):
     sys.path.insert(0, os.path.realpath(os.path.join(current_dir, "../../")))
     os.environ["DJANGO_SETTINGS_MODULE"] = settings
 
-setup_environ("oebfare.settings")
+setup_environ("mightylemon.settings")
 
 from cherrypy.wsgiserver import CherryPyWSGIServer
 from django.core.handlers.wsgi import WSGIHandler
 
 def write_pid():
-    fp = open(os.path.join(current_dir, "oebfare.pid"), "wb")
+    fp = open(os.path.join(current_dir, "mightylemon.pid"), "wb")
     fp.write(str(os.getpid()))
     fp.close()
 
