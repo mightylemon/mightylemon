@@ -1,0 +1,29 @@
+{% extends "base_2col.html" %}
+
+{% block sl %}
+<h1>Events I'm Attending</h1>
+
+{% for event in event_list %}
+<div class="line_item">
+  <div class="grid_3 alpha">
+    {% if not event.is_old %}
+    <h4 class="date">1m 2d</h4>
+    {% else %}
+    &nbsp;
+    {% endif %}
+  </div>
+  <div class="grid_9 omega{% if event.is_old %} old-event{% endif %}">
+    <h2><a href="{% url event-detail event.slug %}">{{ event.name }}</a></h2>
+  </div>
+</div>
+<hr style="visibility:hidden;">
+{% endfor %}
+
+
+{% endblock %}
+
+{% block sr %}
+<h1>Meta</h1>
+<p>Interested in having me speak about Django to you and your cohorts?
+Please get in touch as I'd love to talk to you more about it.</p>  
+{% endblock %}

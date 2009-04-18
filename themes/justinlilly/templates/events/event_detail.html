@@ -1,0 +1,25 @@
+{% extends "base_2col.html" %}
+
+{% block sl %}
+<h1>{{ event.name }}</h1>
+
+<p>{{ event.description }}</p>
+
+{% endblock %}
+
+{% block sr %}
+<h1>Meta</h1>
+<dl>
+  <dt>When</dt>
+  <dd>{{ event.when|date:"F jS, Y" }}</dd>
+  
+  <dt>Where</dt>
+  <dd>{{ event.location }}</dd>
+
+  {% if event.link_to_url %}
+  <dt>Link</dt>
+  <dd><a href="{{event.link_to_url }}">{{ event.link_to_url }}</a></dd>
+  {% endif %}
+
+</dl>
+{% endblock %}
