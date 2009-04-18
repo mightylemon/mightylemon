@@ -3,6 +3,8 @@ from blog.models import Post
 from django.contrib.comments.admin import CommentsAdmin
 from django.contrib.comments.models import Comment
 from blog.models import Blog, BlogSettings, Post
+from django.contrib.comments.admin import CommentsAdmin
+from django.contrib.comments.models import Comment
 
 
 class BlogAdmin(admin.ModelAdmin):
@@ -35,5 +37,4 @@ class CommentsDisplayGenericObjectAdmin(CommentsAdmin):
         return '/admin/%s/%s/%s/' % (obj._meta.app_label,
                                      obj._meta.module_name,
                                      obj.id)
-    
 admin.site.register(Comment, CommentsDisplayGenericObjectAdmin)

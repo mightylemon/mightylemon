@@ -17,7 +17,7 @@
 
   <link href="http://feeds.feedburner.com/ozmmorg" rel="alternate" title="ozmm.feed" type="application/atom+xml" /> 
   <link rel="openid.server" href="http://openid.claimid.com/server" />
-  <link rel="openid.delegate" href="http://openid.claimid.com/defunkt" />
+  <link rel="openid.delegate" href="http://openid.claimid.com/{{ blog.author.username }}" />
 
 </head>
 
@@ -39,15 +39,15 @@
 
       <h3>meta</h3>
       <ul>
-        <li><a href="http://github.com/defunkt">code</a></li>
-        <li><a href="http://twitter.com/defunkt">twitter</a></li>
+        <li><a href="http://github.com/{{ blog.author.username }}">code</a></li>
+        <li><a href="http://twitter.com/{{ blog.author.username }}">twitter</a></li>
         <li><a href="http://feeds.feedburner.com/ozmmorg">feed</a></li>
       </ul>
 
-      <h3 id="badge-header"><a href="http://github.com/defunkt">projects</a></h3>
+      <h3 id="badge-header"><a href="http://github.com/{{ blog.author.username }}">projects</a></h3>
       <div id="github-badge"></div>
       <script type="text/javascript" charset="utf-8">
-        GITHUB_USERNAME="defunkt";
+        GITHUB_USERNAME="{{ blog.author.username }}";
         GITHUB_LIST_LENGTH=10;
         GITHUB_HEAD="h3"; 
       </script>
@@ -74,7 +74,7 @@
         <a href="{% url blog_archive_full %}">Visit the Archive</a>
       </div>
 
-      (( copyright two thousand eight {{ blog.author.get_profile.full_name }} ))
+      (( copyright two thousand nine {{ blog.author.get_profile.full_name }} ))
     </div>
   </div>
 </body>

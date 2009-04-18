@@ -69,7 +69,7 @@ MIDDLEWARE_CLASSES = (
     "blog.middleware.BlogMiddleware",
 )
 
-ROOT_URLCONF = "oebfare.urls"
+ROOT_URLCONF = "mightylemon.urls"
 
 THEME = "oebfare"
 

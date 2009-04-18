@@ -11,6 +11,7 @@
     {{ post|to_html }}
 </div>
 
+{% if post.enable_comments %}
 <hr />
 
 {% load comments %}
@@ -42,6 +43,7 @@
 {% endif %}
 <h2>{% trans "Add Your Comment" %}</h2>
 {% render_comment_form for post %}
+{% endif %}
 {% endblock %}
 
 {% block sr %}
