@@ -92,6 +92,7 @@ INSTALLED_APPS = (
    "aggregator",
    "wsgi",
    "authors",
+   "events",
    
    "tagging",
    "mailer",
