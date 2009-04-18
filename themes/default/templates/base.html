@@ -1,0 +1,62 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+  <head>
+    <title>{% block title %}{{ blog.title }}{% endblock %}</title>
+    <link rel="stylesheet" href="{{ MEDIA_URL }}css/{% if DEBUG %}uncompressed/{% endif %}960.css" type="text/css" media="screen" />
+    <link rel="stylesheet" href="{{ MEDIA_URL }}css/{% if DEBUG %}uncompressed/{% endif %}reset.css" type="text/css" media="screen" />
+    <link rel="stylesheet" href="{{ MEDIA_URL }}css/{% if DEBUG %}uncompressed/{% endif %}text.css" type="text/css" media="screen" />
+    <link rel="stylesheet" href="{{ MEDIA_URL }}css/base.css" type="text/css" media="screen" />
+  </head>
+<body>
+  <div id="container" class="container_16">
+    <div id="masthead" class="grid_16 alpha omega">
+      <a href="/"><h1 id="logo"><span>{{ blog.title }}</span></h1></a>
+    </div>
+    <div id="content" class="grid_12 alpha">
+      {% block content %}{% endblock %}
+    </div>
+    <div id="sidebar" class="grid_4 omega">
+      {% block sidebar %}{% endblock %}
+    </div>
+    <div id="footer" class="grid_16">
+      <h2>Footer goes here</h2>
+      <ul style="list-style: none;" class="grid_3 alpha">
+        <li>Foo Bar Baz</li>
+        <li>Foo Bar Baz</li>
+        <li>Foo Bar Baz</li>
+        <li>Foo Bar Baz</li>
+      </ul>
+      <ul style="list-style: none;" class="grid_3">
+        <li>Foo Bar Baz</li>
+        <li>Foo Bar Baz</li>
+        <li>Foo Bar Baz</li>
+        <li>Foo Bar Baz</li>
+      </ul>
+      <ul style="list-style: none;" class="grid_3">
+        <li>Foo Bar Baz</li>
+        <li>Foo Bar Baz</li>
+        <li>Foo Bar Baz</li>
+        <li>Foo Bar Baz</li>
+      </ul>
+      <ul style="list-style: none;" class="grid_3">
+        <li>Foo Bar Baz</li>
+        <li>Foo Bar Baz</li>
+        <li>Foo Bar Baz</li>
+        <li>Foo Bar Baz</li>
+      </ul>
+      <ul style="list-style: none;" class="grid_3 omega">
+        <li>Foo Bar Baz</li>
+        <li>Foo Bar Baz</li>
+        <li>Foo Bar Baz</li>
+        <li>Foo Bar Baz</li>
+      </ul>
+    </div>
+
+    {% if STATS_CODE %}
+    {% autoescape off %}
+    {{ STATS_CODE }}
+    {% endautoescape %}
+    {% endif %}
+  </div>
+</body>
+</html>

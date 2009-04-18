@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% load blog_utils %}
+{% load webdesign %}
+
+{% block feeds %}
+{% endblock %}
+
+{% block content %}
+{% if posts %}
+
+{% for post in posts  %}
+<div id="inner_sidebar" class="grid_2 alpha">
+  <h5>{{ post.pub_date|date:"F jS" }}</h5>
+  <h3><a href="#">Justin Lilly</a></h3>
+  <h6>Design, Posts, Furry, Catdog</h6>
+</div>
+<div class="grid_10">
+  <h4>{{ post.title }}</h4>
+  <p>{% lorem 5 p %} {{ post.body|truncatewords:150 }}</p>
+  <hr/>
+</div>
+{% endfor %}
+{% else %}
+<p>No entries.</p>
+{% endif %}
+<div class="grid_4 omega">
+  test
+  <hr>
+  <hr>
+  <hr>
+</div>
+{% endblock %}

@@ -1,0 +1,16 @@
+/* Global */
+a { color: #f53a17; text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+
+/* Masthead */
+h1#logo { border-bottom: 3px solid #999; line-height: .8em; padding-top: 2em; color: black;}
+div.inner_sidebar { text-align: right; }
+div.inner_sidebar h5.date { font-size: 1.5em; border-bottom: 1px solid #111; margin-bottom: .5em;}
+div.inner_sidebar h3.author { font-size: 1em;  font-weight: normal; margin-bottom: 1em; border-bottom: 1px solid #111; color: #333;}
+div.inner_sidebar h6.tags { font-size: .8em; font-weight: normal; margin: 0; color: #333;}
+
+/* Sidebar */
+
+/* Footer */
+div#footer { border-top: medium double #999; }

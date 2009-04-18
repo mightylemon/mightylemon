@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+{% load blog_utils %}
+{% load webdesign %}
+
+{% block feeds %}
+{% endblock %}
+
+{% block content %}
+{% if posts %}
+{% for post in posts  %}
+<div class="grid_2 inner_sidebar alpha">
+  <h5 class="date">{{ post.pub_date|date:"F jS" }}</h5>
+  <h3 class="author"><a href="#">Justin Lilly</a></h3>
+  {% if post.tags %}
+  <h6 class="tags"><a href="#">Design</a>, <a href="#">Posts</a>, <a href="#">Furry</a>, <a href="#">Catdog</a></h6>
+  {% endif %}
+</div>
+<div class="grid_10 omega">
+  <h4>{{ post.title }}</h4>
+  <p>{{ post|to_html|truncatewords:50 }}</p>
+  <hr/>
+</div>
+{% endfor %}
+{% else %}
+<p>No entries.</p>
+{% endif %}
+{% endblock %}
+
+{% block sidebar %}
+<h3>My Test!</h3>
+<ul class="grid_3 alpha">
+  <li>Foo Bar Baz</li>
+  <li>Foo Bar Baz</li>
+  <li>Foo Bar Baz</li>
+  <li>Foo Bar Baz</li>
+</ul>
+{% endblock %}
