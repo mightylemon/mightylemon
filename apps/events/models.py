@@ -14,10 +14,10 @@ class Event(models.Model):
     link_to_url = models.URLField(max_length=250, blank=True, null=True)
 
     class Meta:
-        ordering = ["-when"]
+        ordering = ["-start_date"]
        
     def is_old(self):
-        if self.when < date.today():
+        if self.start_date < date.today():
             return True
         return False
     
