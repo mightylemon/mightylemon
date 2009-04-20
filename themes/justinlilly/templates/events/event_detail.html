@@ -11,7 +11,7 @@
 <h1>Meta</h1>
 <dl>
   <dt>When</dt>
-  <dd>{{ event.when|date:"F jS, Y" }}</dd>
+  <dd>{{ event.start_date|date:"F jS, Y" }}{% if event.end_date %} - {{ event.end_date|date:"F jS, Y" }}</dd>
   
   <dt>Where</dt>
   <dd>{{ event.location }}</dd>

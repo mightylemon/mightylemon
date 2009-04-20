@@ -6,7 +6,7 @@
 {% for event in event_list %}
 <div class="line_item">
   <div class="grid_3 alpha">
-    <h4 class="date{% if event.is_old %} old-event{% endif %}">{{ event.when|date:"F jS" }}</h4>
+    <h4 class="date{% if event.is_old %} old-event{% endif %}">{{ event.start_date|date:"F jS" }}</h4>
   </div>
   <div class="grid_9 omega{% if event.is_old %} old-event{% endif %}">
     <h2><a href="{% url event-detail event.slug %}">{{ event.name }}</a></h2>
