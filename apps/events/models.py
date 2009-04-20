@@ -9,7 +9,8 @@ class Event(models.Model):
     slug = models.SlugField(max_length=150)
     description = models.TextField()
     location = models.CharField(max_length=150)
-    when = models.DateField(default=date.today)
+    start_date = models.DateField(default=date.today)
+    end_date = models.DateField(blank=True, null=True)
     link_to_url = models.URLField(max_length=250, blank=True, null=True)
 
     class Meta:
