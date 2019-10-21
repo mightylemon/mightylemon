@@ -1,4 +1,4 @@
-Django==1.0.2-final
+Django==1.11.23
 Pygments==1.0
 docutils==0.5
 
